@@ -1,6 +1,7 @@
 -- Look README.md for see the reserved action/unique numbers
 
 LeverAction = {
+
 	-- The Pits of Inferno Quest
 	[4001] = {
 		itemId = 431,

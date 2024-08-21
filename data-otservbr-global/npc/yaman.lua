@@ -55,7 +55,7 @@ local function greetCallback(npc, creature, message)
 	local player = Player(creature)
 	local playerId = player:getId()
 
-	if not MsgContains(message, "djanni'hah") then
+	if not MsgContains(message, "hi") then
 		npcHandler:say("Shove off, little one! Humans are not welcome here, |PLAYERNAME|!", npc, creature)
 		endConversationWithDelay(npcHandler, npc, creature)
 		return false
@@ -159,7 +159,7 @@ local function onTradeRequest(npc, creature)
 	return true
 end
 
-keywordHandler:addCustomGreetKeyword({ "djanni'hah" }, greetCallback, { npcHandler = npcHandler })
+keywordHandler:addCustomGreetKeyword({ "hi" }, greetCallback, { npcHandler = npcHandler })
 
 npcHandler:setMessage(MESSAGE_FAREWELL, "Farewell, human.")
 npcHandler:setMessage(MESSAGE_WALKAWAY, "Farewell, human.")

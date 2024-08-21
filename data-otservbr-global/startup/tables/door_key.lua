@@ -149,10 +149,10 @@ KeyDoorAction = {
 		itemPos = { { x = 32824, y = 31969, z = 8 } },
 	},
 	-- Door of the key 6010 (demon helmet quest)
-	[Storage.Quest.Key.ID6010] = {
-		itemId = false,
-		itemPos = { { x = 33211, y = 31634, z = 13 } },
-	},
+	-- [Storage.Quest.Key.ID6010] = {
+	-- 	itemId = false,
+	-- 	itemPos = { { x = 33211, y = 31634, z = 13 } },
+	-- },
 	[Storage.Quest.Key.ID0808] = {
 		itemId = false,
 		itemPos = { { x = 33363, y = 31360, z = 3 } },

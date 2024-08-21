@@ -1,0 +1,357 @@
+<?xml version="1.0"?>
+<monsters>
+	<monster centerx="31587" centery="31622" centerz="3" radius="3">
+		<monster name="Durkrae Windcaller" x="2" y="-2" z="3" spawntime="60" />
+		<monster name="Durkrae Tribewarden" x="-2" y="1" z="3" spawntime="60" />
+	</monster>
+	<monster centerx="31570" centery="31632" centerz="3" radius="1">
+		<monster name="Durkrae Windcaller" x="0" y="0" z="3" spawntime="60" />
+	</monster>
+	<monster centerx="31566" centery="31636" centerz="3" radius="3">
+		<monster name="Durkrae Windcaller" x="0" y="0" z="3" spawntime="60" />
+	</monster>
+	<monster centerx="31517" centery="31643" centerz="3" radius="3">
+		<monster name="Frost Undead Dragon" x="0" y="-2" z="3" spawntime="60" />
+		<monster name="Frost Undead Dragon" x="-2" y="2" z="3" spawntime="60" />
+		<monster name="Frost Undead Dragon" x="2" y="2" z="3" spawntime="60" />
+	</monster>
+	<monster centerx="31552" centery="31643" centerz="3" radius="3">
+		<monster name="Durkrae Tribewarden" x="-3" y="0" z="3" spawntime="60" />
+		<monster name="Durkrae Windcaller" x="3" y="0" z="3" spawntime="60" />
+	</monster>
+	<monster centerx="31489" centery="31650" centerz="3" radius="3">
+		<monster name="Frost Undead Dragon" x="-1" y="-3" z="3" spawntime="60" />
+	</monster>
+	<monster centerx="31566" centery="31587" centerz="4" radius="1">
+		<monster name="Frost Undead Dragon" x="0" y="0" z="4" spawntime="60" />
+	</monster>
+	<monster centerx="31561" centery="31589" centerz="4" radius="1">
+		<monster name="Frost Undead Dragon" x="0" y="0" z="4" spawntime="60" />
+	</monster>
+	<monster centerx="31587" centery="31629" centerz="4" radius="3">
+		<monster name="Durkrae Toolshaper" x="-3" y="-2" z="4" spawntime="60" />
+		<monster name="Durkrae Windcaller" x="-1" y="1" z="4" spawntime="60" />
+	</monster>
+	<monster centerx="31565" centery="31574" centerz="5" radius="1">
+		<monster name="Frost Undead Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31542" centery="31614" centerz="5" radius="1">
+		<monster name="Frost Undead Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31557" centery="31624" centerz="5" radius="1">
+		<monster name="Frost Undead Dragon" x="-1" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31594" centery="31636" centerz="5" radius="3">
+		<monster name="Durkrae Windcaller" x="-2" y="-1" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31563" centery="31640" centerz="5" radius="1">
+		<monster name="Durkrae Windcaller" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31489" centery="31643" centerz="5" radius="3">
+		<monster name="Frost Undead Dragon" x="2" y="3" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31552" centery="31643" centerz="5" radius="3">
+		<monster name="Durkrae Windcaller" x="2" y="-1" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31475" centery="31650" centerz="5" radius="3">
+		<monster name="Frost Undead Dragon" x="2" y="1" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31489" centery="31650" centerz="5" radius="3">
+		<monster name="Frost Undead Dragon" x="1" y="1" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31524" centery="31650" centerz="5" radius="3">
+		<monster name="Frost Undead Dragon" x="2" y="-1" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31482" centery="31657" centerz="5" radius="3">
+		<monster name="Frost Undead Dragon" x="-2" y="1" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31517" centery="31657" centerz="5" radius="3">
+		<monster name="Frost Undead Dragon" x="0" y="-2" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31467" centery="31663" centerz="5" radius="1">
+		<monster name="Frost Undead Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31467" centery="31668" centerz="5" radius="1">
+		<monster name="Frost Undead Dragon" x="0" y="0" z="5" spawntime="60" />
+	</monster>
+	<monster centerx="31552" centery="31580" centerz="6" radius="3">
+		<monster name="Frost Undead Dragon" x="-1" y="-3" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31559" centery="31580" centerz="6" radius="3">
+		<monster name="Frost Undead Dragon" x="0" y="2" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31566" centery="31587" centerz="6" radius="3">
+		<monster name="Frost Undead Dragon" x="0" y="3" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31566" centery="31594" centerz="6" radius="3">
+		<monster name="Frost Undead Dragon" x="-3" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31546" centery="31616" centerz="6" radius="1">
+		<monster name="Frost Undead Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31550" centery="31622" centerz="6" radius="1">
+		<monster name="Frost Undead Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31569" centery="31622" centerz="6" radius="1">
+		<monster name="Durkrae Windcaller" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31580" centery="31622" centerz="6" radius="3">
+		<monster name="Durkrae Tribewarden" x="3" y="-1" z="6" spawntime="60" />
+		<monster name="Durkrae Toolshaper" x="-3" y="1" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31587" centery="31622" centerz="6" radius="3">
+		<monster name="Durkrae Windcaller" x="1" y="2" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31566" centery="31629" centerz="6" radius="3">
+		<monster name="Durkrae Windcaller" x="-3" y="-3" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31580" centery="31629" centerz="6" radius="3">
+		<monster name="Durkrae Toolshaper" x="1" y="1" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31503" centery="31636" centerz="6" radius="3">
+		<monster name="Frost Undead Dragon" x="2" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31491" centery="31643" centerz="6" radius="2">
+		<monster name="Frost Undead Dragon" x="0" y="1" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31513" centery="31645" centerz="6" radius="2">
+		<monster name="Frost Undead Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31487" centery="31651" centerz="6" radius="2">
+		<monster name="Frost Undead Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31520" centery="31654" centerz="6" radius="2">
+		<monster name="Frost Undead Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31505" centery="31655" centerz="6" radius="2">
+		<monster name="Frost Undead Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31522" centery="31658" centerz="6" radius="2">
+		<monster name="Frost Undead Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31472" centery="31659" centerz="6" radius="2">
+		<monster name="Frost Undead Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31471" centery="31671" centerz="6" radius="2">
+		<monster name="Frost Undead Dragon" x="1" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31481" centery="31674" centerz="6" radius="1">
+		<monster name="Frost Undead Dragon" x="0" y="0" z="6" spawntime="60" />
+	</monster>
+	<monster centerx="31562" centery="31570" centerz="7" radius="1">
+		<monster name="Frost Undead Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31559" centery="31573" centerz="7" radius="1">
+		<monster name="Frost Undead Dragon" x="1" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31566" centery="31573" centerz="7" radius="1">
+		<monster name="Frost Undead Dragon" x="-1" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31564" centery="31580" centerz="7" radius="1">
+		<monster name="Frost Undead Dragon" x="-1" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31574" centery="31581" centerz="7" radius="1">
+		<monster name="Durkrae Tribewarden" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31580" centery="31592" centerz="7" radius="1">
+		<monster name="Durkrae Tribewarden" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31544" centery="31599" centerz="7" radius="1">
+		<monster name="Durkrae Tribewarden" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31541" centery="31602" centerz="7" radius="1">
+		<monster name="Durkrae Toolshaper" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31561" centery="31607" centerz="7" radius="1">
+		<monster name="Durkrae Tribewarden" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31571" centery="31608" centerz="7" radius="1">
+		<monster name="Durkrae Toolshaper" x="-1" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31579" centery="31611" centerz="7" radius="1">
+		<monster name="Durkrae Toolshaper" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31592" centery="31611" centerz="7" radius="1">
+		<monster name="Durkrae Windcaller" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31547" centery="31612" centerz="7" radius="1">
+		<monster name="Frost Undead Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31521" centery="31619" centerz="7" radius="1">
+		<monster name="Frost Undead Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31547" centery="31620" centerz="7" radius="1">
+		<monster name="Frost Undead Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31588" centery="31624" centerz="7" radius="1">
+		<monster name="Frost Undead Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31583" centery="31625" centerz="7" radius="1">
+		<monster name="Frost Undead Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31529" centery="31628" centerz="7" radius="1">
+		<monster name="Frost Undead Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31561" centery="31628" centerz="7" radius="1">
+		<monster name="Frost Undead Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31585" centery="31628" centerz="7" radius="1">
+		<monster name="Frost Undead Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31573" centery="31631" centerz="7" radius="1">
+		<monster name="Frost Undead Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31549" centery="31632" centerz="7" radius="1">
+		<monster name="Frost Undead Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31532" centery="31641" centerz="7" radius="1">
+		<monster name="Frost Undead Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31502" centery="31643" centerz="7" radius="1">
+		<monster name="Frost Undead Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31577" centery="31643" centerz="7" radius="2">
+		<monster name="Husky" x="0" y="-1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31495" centery="31646" centerz="7" radius="1">
+		<monster name="Frost Undead Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31474" centery="31650" centerz="7" radius="1">
+		<monster name="Frost Undead Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31500" centery="31650" centerz="7" radius="1">
+		<monster name="Frost Undead Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31519" centery="31650" centerz="7" radius="1">
+		<monster name="Frost Undead Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31552" centery="31650" centerz="7" radius="3">
+		<monster name="Squirrel" x="3" y="2" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31595" centery="31651" centerz="7" radius="2">
+		<monster name="Squirrel" x="-1" y="-1" z="7" spawntime="60" />
+		<monster name="Squirrel" x="2" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31543" centery="31655" centerz="7" radius="1">
+		<monster name="Frost Undead Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31483" centery="31657" centerz="7" radius="1">
+		<monster name="Frost Undead Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31523" centery="31657" centerz="7" radius="3">
+		<monster name="Frost Undead Dragon" x="1" y="-1" z="7" spawntime="60" />
+		<monster name="Frost Undead Dragon" x="-2" y="3" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31538" centery="31660" centerz="7" radius="1">
+		<monster name="Frost Undead Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31503" centery="31664" centerz="7" radius="1">
+		<monster name="Frost Undead Dragon" x="-1" y="-1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31478" centery="31670" centerz="7" radius="1">
+		<monster name="Frost Undead Dragon" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31580" centery="31678" centerz="7" radius="3">
+		<monster name="Winter Wolf" x="-2" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31608" centery="31678" centerz="7" radius="3">
+		<monster name="Winter Wolf" x="-3" y="-1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31552" centery="31685" centerz="7" radius="3">
+		<monster name="Winter Wolf" x="-2" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31594" centery="31685" centerz="7" radius="3">
+		<monster name="Winter Wolf" x="1" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31573" centery="31692" centerz="7" radius="3">
+		<monster name="Husky" x="2" y="-1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31556" centery="31694" centerz="7" radius="3">
+		<monster name="Winter Wolf" x="1" y="2" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31531" centery="31699" centerz="7" radius="3">
+		<monster name="Winter Wolf" x="2" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31531" centery="31706" centerz="7" radius="3">
+		<monster name="Winter Wolf" x="3" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31538" centery="31706" centerz="7" radius="3">
+		<monster name="Winter Wolf" x="2" y="-1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31580" centery="31707" centerz="7" radius="2">
+		<monster name="Winter Wolf" x="0" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31609" centery="31722" centerz="7" radius="1">
+		<monster name="Polar Bear" x="0" y="-1" z="7" spawntime="60" />
+		<monster name="Polar Bear" x="0" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31615" centery="31726" centerz="7" radius="1">
+		<monster name="Husky" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31545" centery="31727" centerz="7" radius="3">
+		<monster name="Winter Wolf" x="-2" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31566" centery="31734" centerz="7" radius="3">
+		<monster name="Winter Wolf" x="2" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31629" centery="31741" centerz="7" radius="3">
+		<monster name="Winter Wolf" x="2" y="2" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31566" centery="31748" centerz="7" radius="3">
+		<monster name="Husky" x="0" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31580" centery="31643" centerz="8" radius="3">
+		<monster name="Crystal Spider" x="3" y="1" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="31594" centery="31643" centerz="8" radius="3">
+		<monster name="Crystal Spider" x="2" y="1" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="31580" centery="31650" centerz="8" radius="3">
+		<monster name="Crystal Spider" x="-3" y="1" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="31594" centery="31650" centerz="8" radius="3">
+		<monster name="Crystal Spider" x="-3" y="-2" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="31601" centery="31650" centerz="8" radius="3">
+		<monster name="Crystal Spider" x="2" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="31580" centery="31657" centerz="8" radius="3">
+		<monster name="Crystal Spider" x="3" y="3" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="31566" centery="31664" centerz="8" radius="3">
+		<monster name="Crystal Spider" x="-2" y="-3" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="31601" centery="31664" centerz="8" radius="3">
+		<monster name="Crystal Spider" x="2" y="-3" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="31573" centery="31671" centerz="8" radius="3">
+		<monster name="Crystal Spider" x="-3" y="3" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="31601" centery="31671" centerz="8" radius="3">
+		<monster name="Crystal Spider" x="-2" y="1" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="31573" centery="31678" centerz="8" radius="3">
+		<monster name="Crystal Spider" x="-2" y="-1" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="31580" centery="31685" centerz="8" radius="3">
+		<monster name="Crystal Spider" x="-2" y="1" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="31587" centery="31685" centerz="8" radius="3">
+		<monster name="Crystal Spider" x="-3" y="-3" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="31594" centery="31685" centerz="8" radius="3">
+		<monster name="Crystal Spider" x="3" y="-2" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="31580" centery="31692" centerz="8" radius="3">
+		<monster name="Crystal Spider" x="-2" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="31580" centery="31706" centerz="8" radius="3">
+		<monster name="Crystal Spider" x="0" y="3" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="31580" centery="31720" centerz="8" radius="3">
+		<monster name="Crystal Spider" x="1" y="-2" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="31594" centery="31720" centerz="8" radius="3">
+		<monster name="Crystal Spider" x="-2" y="-2" z="8" spawntime="60" />
+	</monster>
+</monsters>
