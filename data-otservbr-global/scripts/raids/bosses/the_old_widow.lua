@@ -4,9 +4,9 @@ zone:addArea(Position(32292, 32292, 12), Position(32796, 32306, 12))
 local raid = Raid("venore.the-old-widow", {
 	zone = zone,
 	allowedDays = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" },
-	minActivePlayers = 3,
-	initialChance = 0.02,
-	targetChancePerDay = 0.02,
+	minActivePlayers = 1,
+	initialChance = 0.20,
+	targetChancePerDay = 0.20,
 	maxChancePerCheck = 0.8,
 })
 

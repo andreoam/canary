@@ -4,9 +4,9 @@ zone:addArea(Position(33702, 32460, 7), Position(33704, 32462, 7))
 local raid = Raid("roshamuul.mawhawk", {
 	zone = zone,
 	allowedDays = { "Monday", "Tuesday", "Thursday", "Friday", "Saturday", "Sunday" },
-	minActivePlayers = 2,
-	initialChance = 0.04,
-	targetChancePerDay = 0.02,
+	minActivePlayers = 1,
+	initialChance = 0.20,
+	targetChancePerDay = 0.20,
 	maxChancePerCheck = 0.4,
 })
 

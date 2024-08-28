@@ -4,9 +4,9 @@ zone:addArea(Position(32100, 31166, 9), Position(32102, 31168, 9))
 local raid = Raid("svargrond.hirintror", {
 	zone = zone,
 	allowedDays = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" },
-	minActivePlayers = 3,
-	initialChance = 0.02,
-	targetChancePerDay = 0.02,
+	minActivePlayers = 1,
+	initialChance = 0.20,
+	targetChancePerDay = 0.20,
 	maxChancePerCheck = 0.8,
 })
 

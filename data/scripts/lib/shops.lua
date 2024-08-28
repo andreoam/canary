@@ -1215,6 +1215,20 @@ LootShopConfigTable = {
 	},
 
 	["amulets"] = {
+		{ itemName = "gill necklace", clientId = 16108, buy = 20000 },
+		{ itemName = "glacier amulet", clientId = 815, buy = 15000 },
+		{ itemName = "leviathan's amulet", clientId = 9303, buy = 30000 },
+		{ itemName = "magma amulet", clientId = 817, buy = 15000 },
+		{ itemName = "lightning pendant", clientId = 816, buy = 15000 },
+		{ itemName = "prismatic necklace", clientId = 16113, buy = 20000 },
+		{ itemName = "sacred tree amulet", clientId = 9302, buy = 30000 },
+		{ itemName = "shockwave amulet", clientId = 9304, buy = 30000 },
+		{ itemName = "stone skin amulet", clientId = 3081, buy = 5000 },
+		{ itemName = "collar of blue plasma", clientId = 23542, buy = 60000 },
+		{ itemName = "collar of green plasma", clientId = 23543, buy = 60000 },
+		{ itemName = "collar of red plasma", clientId = 23544, buy = 60000 },
+		{ itemName = "terra amulet", clientId = 814, buy = 15000 },
+
 		{ itemName = "amulet of loss", clientId = 3057, sell = 45000 },
 		{ itemName = "ancient amulet", clientId = 3025, sell = 200 },
 		{ itemName = "collar of blue plasma", clientId = 23542, sell = 6000 },
@@ -1246,6 +1260,19 @@ LootShopConfigTable = {
 	},
 
 	["rings"] = {
+		{ itemName = "life ring", clientId = 3052, buy = 900 },
+		{ itemName = "might ring", clientId = 3048, buy = 5000 },
+		{ itemName = "ring of blue plasma", clientId = 23529, buy = 80000 },
+		{ itemName = "ring of green plasma", clientId = 23531, buy = 80000 },
+		{ itemName = "ring of healing", clientId = 3098, buy = 2000 },
+		{ itemName = "prismatic ring", clientId = 16114, buy = 100000 },
+		{ itemName = "ring of red plasma", clientId = 23533, buy = 80000 },
+		{ itemName = "stealth ring", clientId = 3049, buy = 5000 },
+		{ itemName = "time ring", clientId = 3053, buy = 2000 },
+		{ itemName = "dwarven ring", clientId = 3097, buy = 2000 },
+		{ itemName = "energy ring", clientId = 3051, buy = 2000 },
+
+
 		{ itemName = "axe ring", clientId = 3092, sell = 100 },
 		{ itemName = "club ring", clientId = 3093, sell = 100 },
 		{ itemName = "dwarven ring", clientId = 3097, sell = 100 },
@@ -1518,6 +1545,20 @@ LootShopConfigTable = {
 	},
 
 	["potions"] = {
+		{ itemName = "great health potion", clientId = 239, buy = 225 },
+		{ itemName = "great mana potion", clientId = 238, buy = 144 },
+		{ itemName = "great spirit potion", clientId = 7642, buy = 228 },
+		{ itemName = "health potion", clientId = 266, buy = 50 },
+		{ itemName = "mana potion", clientId = 268, buy = 56 },
+		{ itemName = "mana shield potion", clientId = 35563, buy = 200000 },
+		{ itemName = "ultimate health potion", clientId = 7643, buy = 379 },
+		{ itemName = "ultimate mana potion", clientId = 23373, buy = 438 },
+		{ itemName = "ultimate spirit potion", clientId = 23374, buy = 438 },
+		{ itemName = "supreme health potion", clientId = 23375, buy = 625 },
+		{ itemName = "strong health potion", clientId = 236, buy = 115 },
+		{ itemName = "strong mana potion", clientId = 237, buy = 93 },
+
+
 		{ itemName = "berserk potion", clientId = 7439, sell = 500 },
 		{ itemName = "bullseye potion", clientId = 7443, sell = 500 },
 		{ itemName = "empty potion flask", clientId = 283, sell = 5 },
@@ -1528,6 +1569,9 @@ LootShopConfigTable = {
 	},
 
 	["food"] = {
+		{ itemName = "brown mushroom", clientId = 3725, buy = 10 },
+		{ itemName = "fire mushroom", clientId = 3731, buy = 300 },
+		
 		{ itemName = "dark mushroom", clientId = 3728, sell = 100 },
 		{ itemName = "ectoplasmic sushi", clientId = 11681, sell = 300 },
 		{ itemName = "fire mushroom", clientId = 3731, sell = 200 },

@@ -4,9 +4,9 @@ zone:addArea(Position(33257, 32659, 14), Position(33342, 31867, 15))
 local raid = Raid("fury-gates.furiosa", {
 	zone = zone,
 	allowedDays = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" },
-	minActivePlayers = 3,
-	initialChance = 0.01,
-	targetChancePerDay = 0.01,
+	minActivePlayers = 1,
+	initialChance = 0.20,
+	targetChancePerDay = 0.20,
 	maxChancePerCheck = 0.6,
 })
 

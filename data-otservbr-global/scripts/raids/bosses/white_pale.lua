@@ -4,9 +4,9 @@ zone:addArea(Position(33263, 31874, 11), Position(33265, 31876, 11))
 local raid = Raid("edron.white-pale", {
 	zone = zone,
 	allowedDays = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" },
-	minActivePlayers = 3,
-	initialChance = 0.02,
-	targetChancePerDay = 0.02,
+	minActivePlayers = 1,
+	initialChance = 0.20,
+	targetChancePerDay = 0.20,
 	maxChancePerCheck = 0.8,
 })
 
