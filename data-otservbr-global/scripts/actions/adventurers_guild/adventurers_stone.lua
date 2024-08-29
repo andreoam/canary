@@ -21,6 +21,7 @@ local config = {
 		{ fromPos = Position(33586, 31895, 6), toPos = Position(33602, 31902, 6), townId = TOWNS_LIST.RATHLETON },
 		{ fromPos = Position(33510, 32360, 6), toPos = Position(33516, 32365, 6), townId = TOWNS_LIST.ROSHAMUUL },
 		{ fromPos = Position(33916, 31474, 5), toPos = Position(33926, 31480, 5), townId = TOWNS_LIST.ISSAVI },
+		{ fromPos = Position(31522, 31698, 6), toPos = Position(31528, 31706, 6), townId = TOWNS_LIST.ARCADIA },
 	},
 
 	Depots = {
@@ -41,6 +42,7 @@ local config = {
 		{ fromPos = Position(33618, 31889, 7), toPos = Position(33648, 31900, 7), townId = TOWNS_LIST.RATHLETON },
 		{ fromPos = Position(33544, 32373, 6), toPos = Position(33562, 32388, 6), townId = TOWNS_LIST.ROSHAMUUL },
 		{ fromPos = Position(33916, 31474, 7), toPos = Position(33916, 31474, 7), townId = TOWNS_LIST.ISSAVI },
+		{ fromPos = Position(31581, 31696, 6), toPos = Position(31595, 31704, 7), townId = TOWNS_LIST.ARCADIA },
 	},
 }
 

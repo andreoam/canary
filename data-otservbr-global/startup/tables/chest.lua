@@ -1721,13 +1721,13 @@ ChestUnique = {
 		questName = "doublet",
 	},
 	-- Honey Flower Quest
-	-- [6186] = {
-	-- 	useKV = true,
-	-- 	itemId = 9226,
-	-- 	itemPos = { x = 32005, y = 32139, z = 3 },
-	-- 	reward = { { 2984, 1 } }, -- honey
-	-- 	questName = "honeyflower",
-	-- },
+	[6186] = {
+		useKV = true,
+		itemId = 9226,
+		itemPos = { x = 32005, y = 32139, z = 3 },
+		reward = { { 2984, 1 } }, -- honey
+		questName = "honeyflower",
+	},
 	[6182] = {
 		useKV = true,
 		itemId = 9226,
@@ -2561,15 +2561,6 @@ ChestUnique = {
 		reward = { { 11689, 1 } },
 		weight = 43.00,
 		storage = Storage.Quest.U8_6.WrathOfTheEmperor.ChestItems,
-	},
-	-- Rookgaard
-	-- 05 Brown Mushrooms
-	[6301] = {
-		useKV = true,
-		itemId = 2472,
-		itemPos = { x = 32138, y = 32171, z = 3 },
-		reward = { { 3725, 5 } },
-		questName = "Rookgaard05BrownMushrooms",
 	},
 	-- Reward of others scrips files (varied rewards)
 	-- The First dragon Quest

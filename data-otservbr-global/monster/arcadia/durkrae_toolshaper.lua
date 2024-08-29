@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Durkrae Toolshaper")
 local monster = {}
 
 monster.description = "a Durkrae toolshaper"
-monster.experience = 40
+monster.experience = 4000
 monster.outfit = {
 	lookType = 259,
 	lookHead = 0,
@@ -26,8 +26,8 @@ monster.Bestiary = {
 	Locations = "Arcadia.",
 }
 
-monster.health = 80
-monster.maxHealth = 80
+monster.health = 3500
+monster.maxHealth = 3500
 monster.race = "blood"
 monster.corpse = 7320
 monster.speed = 68

@@ -193,7 +193,7 @@ QuestDoorAction = {
 		},
 	},
 	-- Bigfoot burden quest
-	[Storage.Quest.U9_60.BigfootsBurden.DoorGoldenFruits] = {
+	[Storage.BigfootBurden.DoorGoldenFruits] = {
 		itemId = false,
 		itemPos = { { x = 32822, y = 31745, z = 10 } },
 	},
@@ -702,19 +702,19 @@ QuestDoorAction = {
 	-- },
 	-- The Rookie Guard Quest - Mission 07: Attack!
 	-- The library vault door
-	[Storage.Quest.U9_1.TheRookieGuard.LibraryDoor] = {
+	[Storage.TheRookieGuard.LibraryDoor] = {
 		itemId = false,
 		itemPos = { { x = 32090, y = 32156, z = 9 } },
 	},
 	-- The Rookie Guard Quest - Mission 10: Tomb Raiding
 	-- The unholy crypt door
-	[Storage.Quest.U9_1.TheRookieGuard.UnholyCryptDoor] = {
+	[Storage.TheRookieGuard.UnholyCryptDoor] = {
 		itemId = false,
 		itemPos = { { x = 32147, y = 32186, z = 9 } },
 	},
 	-- The Rookie Guard Quest - Mission 12: Into The Fortress
 	-- Lower academy floor door
-	[Storage.Quest.U9_1.TheRookieGuard.AcademyDoor] = {
+	[Storage.TheRookieGuard.AcademyDoor] = {
 		itemId = false,
 		itemPos = { { x = 32109, y = 32189, z = 8 } },
 	},
