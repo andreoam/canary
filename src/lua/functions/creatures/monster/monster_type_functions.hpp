@@ -37,6 +37,9 @@ private:
 	static int luaMonsterTypeRespawnType(lua_State* L);
 	static int luaMonsterTypeCanSpawn(lua_State* L);
 
+	static int luaMonsterTypeCanWalk(lua_State* L);
+	static int luaMonsterTypeCanTarget(lua_State* L);
+
 	static int luaMonsterTypeCanPushItems(lua_State* L);
 	static int luaMonsterTypeCanPushCreatures(lua_State* L);
 

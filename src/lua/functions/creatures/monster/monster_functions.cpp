@@ -72,6 +72,7 @@ void MonsterFunctions::init(lua_State* L) {
 
 	Lua::registerMethod(L, "Monster", "isDead", MonsterFunctions::luaMonsterIsDead);
 	Lua::registerMethod(L, "Monster", "immune", MonsterFunctions::luaMonsterImmune);
+	Lua::registerMethod(L, "Monster", "walkTo", MonsterFunctions::luaMonsterWalkTo);
 
 	CharmFunctions::init(L);
 	LootFunctions::init(L);
@@ -770,5 +771,19 @@ int MonsterFunctions::luaMonsterImmune(lua_State* L) {
 	}
 
 	Lua::pushBoolean(L, monster->isImmune());
+	return 1;
+}
+
+int MonsterFunctions::luaMonsterWalkTo(lua_State* L) {
+	// monster:walkTo(position)
+	std::shared_ptr<Monster> monster = Lua::getUserdataShared<Monster>(L, 1);
+	Position position = Lua::getPosition(L, 2);
+	if (!monster) {
+		Lua::reportErrorFunc(Lua::getErrorDesc(LUA_ERROR_MONSTER_NOT_FOUND));
+		Lua::pushBoolean(L, false);
+		return 0;
+	}
+
+	monster->walkTo(position);
 	return 1;
 }

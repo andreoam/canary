@@ -39,6 +39,8 @@ void MonsterTypeFunctions::init(lua_State* L) {
 	Lua::registerMethod(L, "MonsterType", "isRewardBoss", MonsterTypeFunctions::luaMonsterTypeIsRewardBoss);
 
 	Lua::registerMethod(L, "MonsterType", "canSpawn", MonsterTypeFunctions::luaMonsterTypeCanSpawn);
+	Lua::registerMethod(L, "MonsterType", "canWalk", MonsterTypeFunctions::luaMonsterTypeCanWalk);
+	Lua::registerMethod(L, "MonsterType", "canTarget", MonsterTypeFunctions::luaMonsterTypeCanTarget);
 
 	Lua::registerMethod(L, "MonsterType", "canPushItems", MonsterTypeFunctions::luaMonsterTypeCanPushItems);
 	Lua::registerMethod(L, "MonsterType", "canPushCreatures", MonsterTypeFunctions::luaMonsterTypeCanPushCreatures);
@@ -411,6 +413,38 @@ int MonsterTypeFunctions::luaMonsterTypeCanSpawn(lua_State* L) {
 	const Position &position = Lua::getPosition(L, 2);
 	if (monsterType) {
 		Lua::pushBoolean(L, monsterType->canSpawn(position));
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int MonsterTypeFunctions::luaMonsterTypeCanWalk(lua_State* L) {
+	// get: monsterType:canWalk() set: monsterType:canWalk(bool)
+	const auto &monsterType = Lua::getUserdataShared<MonsterType>(L, 1);
+	if (monsterType) {
+		if (lua_gettop(L) == 1) {
+			Lua::pushBoolean(L, monsterType->info.canWalk);
+		} else {
+			monsterType->info.canWalk = Lua::getBoolean(L, 2);
+			Lua::pushBoolean(L, true);
+		}
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int MonsterTypeFunctions::luaMonsterTypeCanTarget(lua_State* L) {
+	// get: monsterType:canTarget() set: monsterType:canTarget(bool)
+	const auto &monsterType = Lua::getUserdataShared<MonsterType>(L, 1);
+	if (monsterType) {
+		if (lua_gettop(L) == 1) {
+			Lua::pushBoolean(L, monsterType->info.canTarget);
+		} else {
+			monsterType->info.canTarget = Lua::getBoolean(L, 2);
+			Lua::pushBoolean(L, true);
+		}
 	} else {
 		lua_pushnil(L);
 	}
