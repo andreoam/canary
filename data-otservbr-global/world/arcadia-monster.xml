@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<monsters>
+	<monster centerx="31580" centery="31678" centerz="7" radius="3">
+		<monster name="Winter Wolf" x="-2" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31608" centery="31678" centerz="7" radius="3">
+		<monster name="Winter Wolf" x="-3" y="-1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31552" centery="31685" centerz="7" radius="3">
+		<monster name="Winter Wolf" x="-2" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31594" centery="31685" centerz="7" radius="3">
+		<monster name="Winter Wolf" x="1" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31573" centery="31692" centerz="7" radius="3">
+		<monster name="Husky" x="2" y="-1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31556" centery="31694" centerz="7" radius="3">
+		<monster name="Winter Wolf" x="1" y="2" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31531" centery="31699" centerz="7" radius="3">
+		<monster name="Winter Wolf" x="2" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31531" centery="31706" centerz="7" radius="3">
+		<monster name="Winter Wolf" x="3" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31538" centery="31706" centerz="7" radius="3">
+		<monster name="Winter Wolf" x="2" y="-1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31580" centery="31707" centerz="7" radius="2">
+		<monster name="Winter Wolf" x="0" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31609" centery="31722" centerz="7" radius="1">
+		<monster name="Polar Bear" x="0" y="-1" z="7" spawntime="60" />
+		<monster name="Polar Bear" x="0" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31615" centery="31726" centerz="7" radius="1">
+		<monster name="Husky" x="0" y="0" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31545" centery="31727" centerz="7" radius="3">
+		<monster name="Winter Wolf" x="-2" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31566" centery="31734" centerz="7" radius="3">
+		<monster name="Winter Wolf" x="2" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31629" centery="31741" centerz="7" radius="3">
+		<monster name="Winter Wolf" x="2" y="2" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31566" centery="31748" centerz="7" radius="3">
+		<monster name="Husky" x="0" y="1" z="7" spawntime="60" />
+	</monster>
+	<monster centerx="31580" centery="31643" centerz="8" radius="3">
+		<monster name="Crystal Spider" x="3" y="1" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="31594" centery="31643" centerz="8" radius="3">
+		<monster name="Crystal Spider" x="2" y="1" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="31580" centery="31650" centerz="8" radius="3">
+		<monster name="Crystal Spider" x="-3" y="1" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="31594" centery="31650" centerz="8" radius="3">
+		<monster name="Crystal Spider" x="-3" y="-2" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="31601" centery="31650" centerz="8" radius="3">
+		<monster name="Crystal Spider" x="2" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="31580" centery="31657" centerz="8" radius="3">
+		<monster name="Crystal Spider" x="3" y="3" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="31566" centery="31664" centerz="8" radius="3">
+		<monster name="Crystal Spider" x="-2" y="-3" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="31601" centery="31664" centerz="8" radius="3">
+		<monster name="Crystal Spider" x="2" y="-3" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="31573" centery="31671" centerz="8" radius="3">
+		<monster name="Crystal Spider" x="-3" y="3" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="31601" centery="31671" centerz="8" radius="3">
+		<monster name="Crystal Spider" x="-2" y="1" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="31573" centery="31678" centerz="8" radius="3">
+		<monster name="Crystal Spider" x="-2" y="-1" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="31580" centery="31685" centerz="8" radius="3">
+		<monster name="Crystal Spider" x="-2" y="1" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="31587" centery="31685" centerz="8" radius="3">
+		<monster name="Crystal Spider" x="-3" y="-3" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="31594" centery="31685" centerz="8" radius="3">
+		<monster name="Crystal Spider" x="3" y="-2" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="31580" centery="31692" centerz="8" radius="3">
+		<monster name="Crystal Spider" x="-2" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="31580" centery="31706" centerz="8" radius="3">
+		<monster name="Crystal Spider" x="0" y="3" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="31580" centery="31720" centerz="8" radius="3">
+		<monster name="Crystal Spider" x="1" y="-2" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="31594" centery="31720" centerz="8" radius="3">
+		<monster name="Crystal Spider" x="-2" y="-2" z="8" spawntime="60" />
+	</monster>
+</monsters>

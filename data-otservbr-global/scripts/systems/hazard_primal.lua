@@ -89,14 +89,25 @@ spawnEvent:register()
 
 local deathEvent = CreatureEvent("PrimalHazardDeath")
 function deathEvent.onDeath(creature)
+	
 	if not configManager.getBoolean(configKeys.TOGGLE_HAZARDSYSTEM) then
 		return true
 	end
 
 	local monster = creature:getMonster()
-	if not creature or not monster or not monster:hazard() or not hazard:isInZone(monster:getPosition()) then
+
+	if not creature then
 		return true
 	end
+
+	if not monster then
+		return true
+	end
+
+	if not hazard:isInZone(monster:getPosition()) then
+		return true
+	end
+	
 	-- don't spawn pods or plunder if the monster is a reward boss
 	if monster:getType():isRewardBoss() then
 		return true
