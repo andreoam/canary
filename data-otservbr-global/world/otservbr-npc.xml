@@ -97,7 +97,7 @@
 		<npc name="Sholley" x="0" y="0" z="3" spawntime="60" />
 	</npc>
 	<npc centerx="32628" centery="31921" centerz="3" radius="1">
-		<npc name="Humnog, The Guard" x="-1" y="0" z="3" spawntime="60" />
+		<npc name="Humnog, the guard" x="-1" y="0" z="3" spawntime="60" />
 	</npc>
 	<npc centerx="32625" centery="31923" centerz="3" radius="1">
 		<npc name="Emperor Kruzak" x="1" y="0" z="3" spawntime="60" />
@@ -1770,9 +1770,6 @@
 	<npc centerx="32401" centery="32232" centerz="7" radius="1">
 		<npc name="Pig" x="0" y="0" z="7" spawntime="60" />
 	</npc>
-	<npc centerx="32342" centery="32235" centerz="7" radius="1">
-		<npc name="Elane" x="0" y="0" z="7" spawntime="60" />
-	</npc>
 	<npc centerx="33485" centery="32236" centerz="7" radius="1">
 		<npc name="Maelyrra" x="0" y="0" z="7" spawntime="60" />
 	</npc>
@@ -3021,11 +3018,5 @@
 	</npc>
 	<npc centerx="33587" centery="32966" centerz="15" radius="1">
 		<npc name="Gnomish Operative (Raiders)" x="0" y="0" z="15" spawntime="60" />
-	</npc>
-	<npc centerx="32844" centery="32136" centerz="6" radius="1">
-		<npc name="Cheaty" x="0" y="0" z="6" spawntime="60" />
-	</npc>
-	<npc centerx="32973" centery="32082" centerz="8" radius="3">
-		<npc name="The Draccoon" x="0" y="0" z="8" spawntime="60" />
 	</npc>
 </npcs>

@@ -448,6 +448,9 @@ function parseBuyStoreOffer(playerId, msg)
 
 	-- At this point the purchase is assumed to be formatted correctly
 	local offerPrice = offer.type == GameStore.OfferTypes.OFFER_TYPE_EXPBOOST and GameStore.ExpBoostValues[player:getStorageValue(GameStore.Storages.expBoostCount)] or offer.price
+	-- // Karin
+	offer.expBoostPrice = offer.type == GameStore.OfferTypes.OFFER_TYPE_EXPBOOST and offerPrice or nil
+
 	local offerCoinType = offer.coinType
 	if offer.type == GameStore.OfferTypes.OFFER_TYPE_NAMECHANGE and player:kv():get("namelock") then
 		offerPrice = 0
@@ -2058,6 +2061,9 @@ end
 --- Support Functions
 function Player.makeCoinTransaction(self, offer, desc)
 	local op = false
+	
+	-- // Karin
+	local offerPrice = offer.expBoostPrice or offer.price
 
 	if desc then
 		desc = offer.name .. " (" .. desc .. ")"
