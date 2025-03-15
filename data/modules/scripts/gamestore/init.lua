@@ -1490,74 +1490,67 @@ GameStore.canChangeToName = function(name)
 	local result = {
 		ability = false,
 	}
-
-	if name:len() < 3 or name:len() > 29 then
-		result.reason = "The length of your new name must be between 3 and 29 characters."
+	if name:len() < 3 or name:len() > 18 then
+		result.reason = "The length of your new name must be between 3 and 18 characters."
 		return result
 	end
 
 	local match = name:gmatch("%s+")
 	local count = 0
-	for _ in match do
+	for v in match do
 		count = count + 1
 	end
 
 	local matchtwo = name:match("^%s+")
 	if matchtwo then
-		result.reason = "Your new name can't have whitespace at the beginning."
+		result.reason = "Your new name can't have whitespace at begin."
 		return result
 	end
 
-	if count > 2 then
-		result.reason = "Your new name can't have more than 2 spaces."
-		return result
-	end
-
-	if name:match("%s%s") then
-		result.reason = "Your new name can't have consecutive spaces."
+	if count > 1 then
+		result.reason = "Your new name have more than 1 whitespace."
 		return result
 	end
 
 	-- just copied from znote aac.
 	local words = { "owner", "gamemaster", "hoster", "admin", "staff", "tibia", "account", "god", "anal", "ass", "fuck", "sex", "hitler", "pussy", "dick", "rape", "adm", "cm", "gm", "tutor", "counsellor" }
 	local split = name:split(" ")
-	for _, word in ipairs(words) do
-		for _, nameWord in ipairs(split) do
+	for k, word in ipairs(words) do
+		for k, nameWord in ipairs(split) do
 			if nameWord:lower() == word then
-				result.reason = "You can't use the word '" .. word .. "' in your new name."
+				result.reason = "You can't use word \"" .. word .. '" in your new name.'
 				return result
 			end
 		end
 	end
 
 	local tmpName = name:gsub("%s+", "")
-	for _, word in ipairs(words) do
-		if tmpName:lower():find(word) then
-			result.reason = "You can't use the word '" .. word .. "' even with spaces in your new name."
+	for i = 1, #words do
+		if tmpName:lower():find(words[i]) then
+			result.reason = "You can't use word \"" .. words[i] .. '" with whitespace in your new name.'
 			return result
 		end
 	end
 
 	if MonsterType(name) then
-		result.reason = "Your new name '" .. name .. "' can't be a monster's name."
+		result.reason = 'Your new name "' .. name .. "\" can't be a monster's name."
 		return result
 	elseif Npc(name) then
-		result.reason = "Your new name '" .. name .. "' can't be an NPC's name."
+		result.reason = 'Your new name "' .. name .. "\" can't be a npc's name."
 		return result
 	end
 
 	local letters = "{}|_*+-=<>0123456789@#%^&()/*'\\.,:;~!\"$"
 	for i = 1, letters:len() do
 		local c = letters:sub(i, i)
-		for j = 1, name:len() do
-			local m = name:sub(j, j)
+		for i = 1, name:len() do
+			local m = name:sub(i, i)
 			if m == c then
-				result.reason = "You can't use this character '" .. c .. "' in your new name."
+				result.reason = "You can't use this letter \"" .. c .. '" in your new name.'
 				return result
 			end
 		end
 	end
-
 	result.ability = true
 	return result
 end
@@ -2061,7 +2054,6 @@ end
 --- Support Functions
 function Player.makeCoinTransaction(self, offer, desc)
 	local op = false
-	
 	-- // Karin
 	local offerPrice = offer.expBoostPrice or offer.price
 
@@ -2071,16 +2063,18 @@ function Player.makeCoinTransaction(self, offer, desc)
 		desc = offer.name
 	end
 
-	if offer.coinType == GameStore.CoinType.Coin and self:canRemoveCoins(offer.price) then
-		op = self:removeCoinsBalance(offer.price)
-	elseif offer.coinType == GameStore.CoinType.Transferable and self:canRemoveTransferableCoins(offer.price) then
-		op = self:removeTransferableCoinsBalance(offer.price)
+	if offer.coinType == GameStore.CoinType.Coin and self:canRemoveCoins(offerPrice) then
+		op = self:removeCoinsBalance(offerPrice)
+	elseif offer.coinType == GameStore.CoinType.Transferable and self:canRemoveTransferableCoins(offerPrice) then
+		op = self:removeTransferableCoinsBalance(offerPrice)
 	end
 
 	-- When the transaction is successful add to the history
 	if op then
-		GameStore.insertHistory(self:getAccountId(), GameStore.HistoryTypes.HISTORY_TYPE_NONE, desc, offer.price * -1, offer.coinType)
+		GameStore.insertHistory(self:getAccountId(), GameStore.HistoryTypes.HISTORY_TYPE_NONE, desc, offerPrice * -1, offer.coinType)
 	end
+	
+	offer.expBoostPrice = nil
 
 	return op
 end

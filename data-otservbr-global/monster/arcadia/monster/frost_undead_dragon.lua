@@ -4,9 +4,9 @@ local monster = {}
 monster.description = "a Frost Undead Dragon"
 monster.experience = 15000
 monster.outfit = {
-	lookType = 947,
+	lookType = 30000,
 	lookHead = 0,
-	lookBody = 9,
+	lookBody = 0,
 	lookLegs = 0,
 	lookFeet = 0,
 	lookAddons = 0,
@@ -14,11 +14,23 @@ monster.outfit = {
 }
 
 monster.raceId = 317
+monster.Bestiary = {
+	class = "Undead",
+	race = BESTY_RACE_UNDEAD,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
+	Stars = 3,
+	Occurrence = 0,
+	Locations = "Arcadia.",
+}
+
 
 monster.health = 16200
 monster.maxHealth = 16200
 monster.race = "undead"
-monster.corpse = 25185
+monster.corpse = 60224
 monster.speed = 185
 monster.manaCost = 0
 

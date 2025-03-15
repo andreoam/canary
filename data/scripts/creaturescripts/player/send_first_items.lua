@@ -91,6 +91,16 @@ function sendFirstItems.onLogin(player)
 		return true
 	end
 
+	local inbox = player:getStoreInbox()
+    if inbox then
+        local addedItem = inbox:addItem(23721)
+        -- if addedItem then
+        --     player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "O item foi adicionado à sua store inbox.")
+        -- else
+        --     player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Não foi possível adicionar o item à store inbox.")
+        -- end
+    end
+
 	if targetVocation.items then
 		for i = 1, #targetVocation.items do
 			player:addItem(targetVocation.items[i][1], targetVocation.items[i][2])

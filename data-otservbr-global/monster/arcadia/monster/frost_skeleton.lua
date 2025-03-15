@@ -4,7 +4,7 @@ local monster = {}
 monster.description = "a frost skeleton"
 monster.experience = 15000
 monster.outfit = {
-	lookType = 298,
+	lookType = 30001,
 	lookHead = 0,
 	lookBody = 0,
 	lookLegs = 0,
@@ -14,11 +14,22 @@ monster.outfit = {
 }
 
 monster.raceId = 317
+monster.Bestiary = {
+	class = "Undead",
+	race = BESTY_RACE_UNDEAD,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
+	Stars = 3,
+	Occurrence = 0,
+	Locations = "Arcadia.",
+}
 
 monster.health = 16200
 monster.maxHealth = 16200
 monster.race = "undead"
-monster.corpse = 5972
+monster.corpse = 60228
 monster.speed = 185
 monster.manaCost = 0
 
