@@ -793,7 +793,8 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage &msg) {
 			message = fmt::format("You are already logged in using protocol '{}'. Please log out from the other session to connect here.", foundPlayer->getProtocolVersion());
 		}
 
-		foundPlayer->client->disconnectClient(message);
+		disconnectClient(message);
+		return;
 	}
 
 	auto timeStamp = msg.get<uint32_t>();
