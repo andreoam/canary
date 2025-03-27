@@ -1,4 +1,4 @@
-LeoTK_Upgrade_System_config = {
+Upgrade_System_config = {
     kv = "upgradeNoLogout",
     recipeOptionSelected = {
         noRemoveItem = "noRemoveItemUpgrade",
@@ -361,7 +361,7 @@ LeoTK_Upgrade_System_config = {
     forgePosition = "This position is not valid because the correct position of the forge.",
 }
 
-LeoTK_Upgrade_System_itemForge = {
+Upgrade_System_itemForge = {
     base = 2342, -- <== or ==>
     basetwo = 2344, -- /\ or \/
     anvil = 3458,
@@ -371,7 +371,7 @@ LeoTK_Upgrade_System_itemForge = {
     tile = 410,
 }
 
-LeoTK_Upgrade_System_forge = {
+Upgrade_System_forge = {
     north = { -- /\ /\ /\ /\
     Position(1571, 1250, 6),
     Position(1574, 1250, 6),
@@ -387,7 +387,7 @@ LeoTK_Upgrade_System_forge = {
     },
 }
 
-LeoTK_Upgrade_System_attackTypes = {
+Upgrade_System_attackTypes = {
     [0] = "Physical", 
     [1] = "Energy", 
     [2] = "Earth", 
@@ -404,7 +404,7 @@ LeoTK_Upgrade_System_attackTypes = {
     [13] = "Neutral"
 }
 
-LeoTK_Upgrade_System_equipmentTypes = {
+Upgrade_System_equipmentTypes = {
     [1] = ITEM_TYPE_ARMOR,
     [2] = ITEM_TYPE_AMULET,
     [3] = ITEM_TYPE_BOOTS,
@@ -420,7 +420,7 @@ LeoTK_Upgrade_System_equipmentTypes = {
     [13] = ITEM_TYPE_QUIVER,
 }
 
-LeoTK_Upgrade_System_equipmentNames = {
+Upgrade_System_equipmentNames = {
     [1] = "Armor",
     [2] = "Amulet",
     [3] = "Boots",
@@ -436,13 +436,13 @@ LeoTK_Upgrade_System_equipmentNames = {
     [25] = "Quiver",
 }
 
-function LeoTK_Upgrade_System_capitalizeFirstLetters(name)
+function Upgrade_System_capitalizeFirstLetters(name)
     return name:gsub("(%a)([%w_']*)", function(first, rest)
         return first:upper() .. rest:lower()
     end)
 end
 
-function LeoTK_Upgrade_System_levels(config)
+function Upgrade_System_levels(config)
     local levels = {}
     for level, data in pairs(config) do
         if type(data) == "table" and data.enable ~= nil then
@@ -452,16 +452,16 @@ function LeoTK_Upgrade_System_levels(config)
     return levels
 end
 
-local leotk_upgradeSystemLogout = CreatureEvent("UpgradeSystemLogout")
-function leotk_upgradeSystemLogout.onLogout(player)
+local upgradeSystemLogout = CreatureEvent("UpgradeSystemLogout")
+function upgradeSystemLogout.onLogout(player)
     local playerKV = player:kv()
-    local checkKV = playerKV:get(LeoTK_Upgrade_System_config.kv)
+    local checkKV = playerKV:get(Upgrade_System_config.kv)
 	if checkKV and checkKV - os.time() > 0 then
         player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "[System] Alert, you can disconnect at "..checkKV - os.time().." seconds")
         --player:getPosition():sendSingleSoundEffect(sound.alertChance, player:isInGhostMode() and nil or player)
-        player:getPosition():sendMagicEffect(LeoTK_Upgrade_System_config.failedEffect)
+        player:getPosition():sendMagicEffect(Upgrade_System_config.failedEffect)
        return false
 	end
     return true
 end
-leotk_upgradeSystemLogout:register()
+upgradeSystemLogout:register()

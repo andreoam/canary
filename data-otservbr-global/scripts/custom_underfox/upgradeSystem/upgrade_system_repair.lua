@@ -1,9 +1,9 @@
 dofile("data-otservbr-global/scripts/custom_underfox/upgradeSystem/upgrade_system_lib.lua")
-local leotk_upgradeSystem_repair = Action()
-function leotk_upgradeSystem_repair.onUse(player, item, fromPosition, target, toPosition, isHotkey, tilePosition)
+local upgradeSystem_repair = Action()
+function upgradeSystem_repair.onUse(player, item, fromPosition, target, toPosition, isHotkey, tilePosition)
     if target:getCustomAttribute("tool") ~= "upgrade tool" then
         player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You can only repair upgrade tools.")
-        player:getPosition():sendMagicEffect(LeoTK_Upgrade_System_config.failedEffect)
+        player:getPosition():sendMagicEffect(Upgrade_System_config.failedEffect)
         return false
     end
     
@@ -54,15 +54,15 @@ function leotk_upgradeSystem_repair.onUse(player, item, fromPosition, target, to
         end
         else
             player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The repair tool is not compatible with the upgrade tool, both must have the same rank.")
-            player:getPosition():sendMagicEffect(LeoTK_Upgrade_System_config.failedEffect)
+            player:getPosition():sendMagicEffect(Upgrade_System_config.failedEffect)
         end
     else
         player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Your tool is broken, repair it first before trying to forge.")
-        player:getPosition():sendMagicEffect(LeoTK_Upgrade_System_config.failedEffect)
+        player:getPosition():sendMagicEffect(Upgrade_System_config.failedEffect)
     end
     return true
 end
 
 
-leotk_upgradeSystem_repair:aid(LeoTK_Upgrade_System_config.actionId.repairtool)
-leotk_upgradeSystem_repair:register()
+upgradeSystem_repair:aid(Upgrade_System_config.actionId.repairtool)
+upgradeSystem_repair:register()

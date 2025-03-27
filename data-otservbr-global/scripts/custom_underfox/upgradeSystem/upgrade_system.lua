@@ -1,6 +1,6 @@
 dofile("data-otservbr-global/scripts/custom_underfox/upgradeSystem/upgrade_system_lib.lua")
 local itemIds = {}
-for _, data in pairs(LeoTK_Upgrade_System_config) do
+for _, data in pairs(Upgrade_System_config) do
     if type(data) == "table" and data.enable and data.itemId then
         local alreadyExists = false
         for _, id in ipairs(itemIds) do
@@ -15,9 +15,9 @@ for _, data in pairs(LeoTK_Upgrade_System_config) do
     end
 end
 
-local leotk_upgradeSystem = Action()
+local upgradeSystem = Action()
 
-function leotk_upgradeSystem.onUse(player, item, fromPosition, target, toPosition, isHotkey, tilePosition)
+function upgradeSystem.onUse(player, item, fromPosition, target, toPosition, isHotkey, tilePosition)
     local category
     local targetItem = target:getId()
     local targetName = target:getName()
@@ -38,16 +38,16 @@ function leotk_upgradeSystem.onUse(player, item, fromPosition, target, toPositio
     local posTo = {}
     local directions = {"north", "south", "east", "west"}
     for _, direction in pairs(directions) do
-        for _, wallPosition in pairs(LeoTK_Upgrade_System_forge[direction]) do
+        for _, wallPosition in pairs(Upgrade_System_forge[direction]) do
             local tile = Tile(wallPosition)
             if tile then
                 local itemsOnForge = tile:getItems()
                 for _, itemOnForge in ipairs(itemsOnForge) do
                     local itemID = itemOnForge:getId()
                     if not (
-                        itemID == LeoTK_Upgrade_System_itemForge.anvil or
-                        itemID == LeoTK_Upgrade_System_itemForge.base or
-                        itemID == LeoTK_Upgrade_System_itemForge.basetwo
+                        itemID == Upgrade_System_itemForge.anvil or
+                        itemID == Upgrade_System_itemForge.base or
+                        itemID == Upgrade_System_itemForge.basetwo
                     ) then
                         isForgeEmpty = false
                         validForge = true
@@ -60,13 +60,13 @@ function leotk_upgradeSystem.onUse(player, item, fromPosition, target, toPositio
 
     if item:getCustomAttribute("rank") == nil then
         player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The weapon does not have the necessary rank to be used in the forge.")
-        player:getPosition():sendMagicEffect(LeoTK_Upgrade_System_config.failedEffect)
+        player:getPosition():sendMagicEffect(Upgrade_System_config.failedEffect)
         return false
     end
 
     if item:getCustomAttribute("break") == true then
         player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Your tool is broken, repair it first before trying to forge.")
-        player:getPosition():sendMagicEffect(LeoTK_Upgrade_System_config.failedEffect)
+        player:getPosition():sendMagicEffect(Upgrade_System_config.failedEffect)
         -- item:setCustomAttribute("durability", 5)
         -- item:setCustomAttribute("break", false)
         return false
@@ -79,11 +79,11 @@ function leotk_upgradeSystem.onUse(player, item, fromPosition, target, toPositio
     else
         categoryTarget = category
     end
-    local upgradeConfig = LeoTK_Upgrade_System_config[category]
+    local upgradeConfig = Upgrade_System_config[category]
 
     local isValidPosition = false
     for _, direction in pairs(directions) do
-        for _, wallPosition in pairs(LeoTK_Upgrade_System_forge[direction]) do
+        for _, wallPosition in pairs(Upgrade_System_forge[direction]) do
             if wallPosition == toPosition then
                 isValidPosition = true
                 break
@@ -92,19 +92,19 @@ function leotk_upgradeSystem.onUse(player, item, fromPosition, target, toPositio
     end
     
     if not isValidPosition then
-        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "[".. LeoTK_Upgrade_System_capitalizeFirstLetters(targetName) .. "]: " .. LeoTK_Upgrade_System_config.forgePosition)
-        player:getPosition():sendMagicEffect(LeoTK_Upgrade_System_config.failedEffect)
+        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "[".. Upgrade_System_capitalizeFirstLetters(targetName) .. "]: " .. Upgrade_System_config.forgePosition)
+        player:getPosition():sendMagicEffect(Upgrade_System_config.failedEffect)
         return false
     end
 
     if isForgeEmpty then
-        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "[".. LeoTK_Upgrade_System_capitalizeFirstLetters(targetName) .. "]: " .. LeoTK_Upgrade_System_config.forgeEmpty)
-        player:getPosition():sendMagicEffect(LeoTK_Upgrade_System_config.failedEffect)
+        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "[".. Upgrade_System_capitalizeFirstLetters(targetName) .. "]: " .. Upgrade_System_config.forgeEmpty)
+        player:getPosition():sendMagicEffect(Upgrade_System_config.failedEffect)
         return false
     end
 
     local function isValidEquipmentType(itemType)
-        for _, validType in pairs(LeoTK_Upgrade_System_equipmentTypes) do
+        for _, validType in pairs(Upgrade_System_equipmentTypes) do
             if itemType:getType() == validType then
                 return true
             end
@@ -113,8 +113,8 @@ function leotk_upgradeSystem.onUse(player, item, fromPosition, target, toPositio
     end
 
     if not isValidEquipmentType(itemType) then
-        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "[".. LeoTK_Upgrade_System_capitalizeFirstLetters(targetName) .. "]: " .. LeoTK_Upgrade_System_config.itemNotValid)
-        player:getPosition():sendMagicEffect(LeoTK_Upgrade_System_config.failedEffect)
+        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "[".. Upgrade_System_capitalizeFirstLetters(targetName) .. "]: " .. Upgrade_System_config.itemNotValid)
+        player:getPosition():sendMagicEffect(Upgrade_System_config.failedEffect)
         return false
     end
 
@@ -124,7 +124,7 @@ function leotk_upgradeSystem.onUse(player, item, fromPosition, target, toPositio
     if currentUpgrade < upgradeConfig.minLevelUp then
         local message = "This item requires at least upgrade level " .. upgradeConfig.minLevelUp .. " to use (" .. category .. ")."
         player:sendTextMessage(MESSAGE_EVENT_ADVANCE, message)
-        player:getPosition():sendMagicEffect(LeoTK_Upgrade_System_config.failedEffect)
+        player:getPosition():sendMagicEffect(Upgrade_System_config.failedEffect)
         return false
     end
     
@@ -132,7 +132,7 @@ function leotk_upgradeSystem.onUse(player, item, fromPosition, target, toPositio
     if currentUpgrade >= upgradeConfig.maxLevelUp then
         local nextCategory = nil
         local currentMaxLevelUp = upgradeConfig.maxLevelUp
-        for catName, catData in pairs(LeoTK_Upgrade_System_config) do
+        for catName, catData in pairs(Upgrade_System_config) do
             if type(catData) == "table" and catData.enable and catData.minLevelUp == currentMaxLevelUp then
                 nextCategory = catName
                 break
@@ -146,7 +146,7 @@ function leotk_upgradeSystem.onUse(player, item, fromPosition, target, toPositio
             message = "You have reached the maximum level for the (" .. category .. ") category, and there are no further upgrades available."
         end
         player:sendTextMessage(MESSAGE_EVENT_ADVANCE, message)
-        player:getPosition():sendMagicEffect(LeoTK_Upgrade_System_config.failedEffect)
+        player:getPosition():sendMagicEffect(Upgrade_System_config.failedEffect)
         return false
     end
 
@@ -157,7 +157,7 @@ function leotk_upgradeSystem.onUse(player, item, fromPosition, target, toPositio
         processingMoney = true
     else
         player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You do not have ".. upgradeConfig.goldCoin .." gold coins to use the forge.")
-        player:getPosition():sendMagicEffect(LeoTK_Upgrade_System_config.failedEffect)
+        player:getPosition():sendMagicEffect(Upgrade_System_config.failedEffect)
         return false
     end
 
@@ -182,28 +182,28 @@ function leotk_upgradeSystem.onUse(player, item, fromPosition, target, toPositio
     local playerKV = player:kv()
     if upgradeConfig.recipe.enable == true and hasRecipeItems(player) == true then
         processingRecipe = true
-    elseif upgradeConfig.recipe.enable == true and hasRecipeItems(player) == false and (upgradeConfig.recipe.required == true or playerKV:get(LeoTK_Upgrade_System_config.recipeOptionSelected.noRemoveItem) == 1) then
+    elseif upgradeConfig.recipe.enable == true and hasRecipeItems(player) == false and (upgradeConfig.recipe.required == true or playerKV:get(Upgrade_System_config.recipeOptionSelected.noRemoveItem) == 1) then
         player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You do not have the following items " ..
             table.concat(recipeOptions, ' and ') .. " to upgrade the item.")
-        player:getPosition():sendMagicEffect(LeoTK_Upgrade_System_config.failedEffect)
+        player:getPosition():sendMagicEffect(Upgrade_System_config.failedEffect)
         return false
     end
 
     if upgradeConfig.costGoldCoin == true and upgradeConfig.recipe.enable == true and processingMoney == true and processingRecipe == true then
         player:removeMoneyBank(upgradeConfig.goldCoin)
         player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "A value of ".. upgradeConfig.goldCoin .." gold coins was spent on forging.")
-        player:getPosition():sendMagicEffect(LeoTK_Upgrade_System_config.effectPayment)
+        player:getPosition():sendMagicEffect(Upgrade_System_config.effectPayment)
         removeRecipeItems(player)
     elseif upgradeConfig.costGoldCoin == true and upgradeConfig.recipe.enable == false and processingMoney == true and processingRecipe == false then
         player:removeMoneyBank(upgradeConfig.goldCoin)
         player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "A value of ".. upgradeConfig.goldCoin .." gold coins was spent on forging.")
-        player:getPosition():sendMagicEffect(LeoTK_Upgrade_System_config.effectPayment)
+        player:getPosition():sendMagicEffect(Upgrade_System_config.effectPayment)
     elseif upgradeConfig.costGoldCoin == false and upgradeConfig.recipe.enable == true and processingMoney == false and processingRecipe == true then
         removeRecipeItems(player)
     elseif upgradeConfig.costGoldCoin == true and upgradeConfig.recipe.enable == true and processingMoney == true and processingRecipe == false then
         player:removeMoneyBank(upgradeConfig.goldCoin)
         player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "A value of ".. upgradeConfig.goldCoin .." gold coins was spent on forging.")
-        player:getPosition():sendMagicEffect(LeoTK_Upgrade_System_config.effectPayment)
+        player:getPosition():sendMagicEffect(Upgrade_System_config.effectPayment)
     end
 
     posTo = player:getPosition()
@@ -213,7 +213,7 @@ function leotk_upgradeSystem.onUse(player, item, fromPosition, target, toPositio
     --print("targetItem:", targetItem)
     --print("Player position:", playerPosition.x, playerPosition.y, playerPosition.z)
     for _, direction in pairs(directions) do
-        for _, wallPosition in pairs(LeoTK_Upgrade_System_forge[direction]) do
+        for _, wallPosition in pairs(Upgrade_System_forge[direction]) do
             if math.abs(playerPosition.x - wallPosition.x) <= tolerance and
                math.abs(playerPosition.y - wallPosition.y) <= tolerance and
                math.abs(playerPosition.z - wallPosition.z) <= tolerance then
@@ -222,15 +222,15 @@ function leotk_upgradeSystem.onUse(player, item, fromPosition, target, toPositio
                     local itemOnForge = tile:getItemById(targetItem)
                     if itemOnForge then
                         local playerKV = player:kv()
-                        playerKV:set(LeoTK_Upgrade_System_config.kv, os.time() + LeoTK_Upgrade_System_config.durationUpgrade + 2)
+                        playerKV:set(Upgrade_System_config.kv, os.time() + Upgrade_System_config.durationUpgrade + 2)
                         itemOnForge:remove()
-                        wallPosition:sendMagicEffect(LeoTK_Upgrade_System_config.effectItemRemove)
+                        wallPosition:sendMagicEffect(Upgrade_System_config.effectItemRemove)
                         forgePosition = wallPosition
-                        for i = 1, LeoTK_Upgrade_System_config.durationUpgrade do
-                            addEvent(function() wallPosition:sendMagicEffect(LeoTK_Upgrade_System_config.effectItemBoost) end, 1000 * (i - 1))
+                        for i = 1, Upgrade_System_config.durationUpgrade do
+                            addEvent(function() wallPosition:sendMagicEffect(Upgrade_System_config.effectItemBoost) end, 1000 * (i - 1))
                             --addEvent(function() player:getPosition():sendSingleSoundEffect(sound.forgeHit, player:isInGhostMode() and nil or player) end, 1000 * (i - 2.8))
                         end
-                        for i = 1, LeoTK_Upgrade_System_config.durationUpgrade* 10 do
+                        for i = 1, Upgrade_System_config.durationUpgrade* 10 do
                             addEvent(function() player:teleportTo(posTo) end, 100 * (i - 1))
                         end
                         itemRemoved = true
@@ -250,7 +250,7 @@ function leotk_upgradeSystem.onUse(player, item, fromPosition, target, toPositio
     local function cleanName(name)
         return name:gsub("%s%+%d+$", "")
     end
-    local attackTypeName = LeoTK_Upgrade_System_attackTypes[elementType] or "None"
+    local attackTypeName = Upgrade_System_attackTypes[elementType] or "None"
     local currentArmor = target:getCustomAttribute("armor") or 0
     local currentAttack = target:getCustomAttribute("attack") or 0
     local currentHitChance = target:getCustomAttribute("hitChance") or 0
@@ -330,8 +330,8 @@ function leotk_upgradeSystem.onUse(player, item, fromPosition, target, toPositio
                 local finalDescription = ""
                 itemAdd:setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, finalDescription)
                 end
-                player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Breakdown the item [".. LeoTK_Upgrade_System_capitalizeFirstLetters(targetName) .. "] raised the level ".. currentUpgrade .." to the level ".. newUpgrade)
-                player:getPosition():sendMagicEffect(LeoTK_Upgrade_System_config.failedEffect)
+                player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Breakdown the item [".. Upgrade_System_capitalizeFirstLetters(targetName) .. "] raised the level ".. currentUpgrade .." to the level ".. newUpgrade)
+                player:getPosition():sendMagicEffect(Upgrade_System_config.failedEffect)
                 item:setCustomAttribute("break", true)
                 itemAdd:setCustomAttribute("rank", category)
             elseif chance <= upgradeConfig.chanceDownGrade and currentUpgrade > 4 and processingRecipe == false then
@@ -381,8 +381,8 @@ function leotk_upgradeSystem.onUse(player, item, fromPosition, target, toPositio
                 magicAttackDescription .. ")"..
                 "\nRank: ".. categoryTarget .." | Level: ".. itemAdd:getCustomAttribute("upgrade") .." | By: ".. player:getName()
                 itemAdd:setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, finalDescription)
-                player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Downgrade the item [".. LeoTK_Upgrade_System_capitalizeFirstLetters(targetName) .. "] raised the level ".. currentUpgrade .." to the level ".. newUpgrade)
-                player:getPosition():sendMagicEffect(LeoTK_Upgrade_System_config.failedEffect)
+                player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Downgrade the item [".. Upgrade_System_capitalizeFirstLetters(targetName) .. "] raised the level ".. currentUpgrade .." to the level ".. newUpgrade)
+                player:getPosition():sendMagicEffect(Upgrade_System_config.failedEffect)
                 local randomDurability = math.random()
                 local decimalDurability = math.random(0, 2)
                 durability = math.max(0, durability - (decimalDurability + randomDurability))
@@ -439,8 +439,8 @@ function leotk_upgradeSystem.onUse(player, item, fromPosition, target, toPositio
                     magicAttackDescription .. ")"..
                     "\nRank: ".. category .." | Level: ".. itemAdd:getCustomAttribute("upgrade") .." | By: ".. player:getName()
                     itemAdd:setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, finalDescription)
-                    player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Success the item [".. LeoTK_Upgrade_System_capitalizeFirstLetters(targetName) .. "] raised the level ".. currentUpgrade .." to the level ".. newUpgrade)
-                    player:getPosition():sendMagicEffect(LeoTK_Upgrade_System_config.effect)
+                    player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Success the item [".. Upgrade_System_capitalizeFirstLetters(targetName) .. "] raised the level ".. currentUpgrade .." to the level ".. newUpgrade)
+                    player:getPosition():sendMagicEffect(Upgrade_System_config.effect)
                     itemAdd:setCustomAttribute("rank", category)
             else
                 local inbox = player:getStoreInbox()
@@ -496,8 +496,8 @@ function leotk_upgradeSystem.onUse(player, item, fromPosition, target, toPositio
                 "\nRank: ".. categoryTarget .." | Level: ".. itemAdd:getCustomAttribute("upgrade") .." | By: ".. player:getName()
                 itemAdd:setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, finalDescription)
                 end
-                player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Failed the item [".. LeoTK_Upgrade_System_capitalizeFirstLetters(targetName) .. "] raised the level ".. currentUpgrade .." to the level ".. newUpgrade)
-                player:getPosition():sendMagicEffect(LeoTK_Upgrade_System_config.failedEffect)
+                player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Failed the item [".. Upgrade_System_capitalizeFirstLetters(targetName) .. "] raised the level ".. currentUpgrade .." to the level ".. newUpgrade)
+                player:getPosition():sendMagicEffect(Upgrade_System_config.failedEffect)
                 itemAdd:setCustomAttribute("rank", category)
                 local randomDurability = math.random()
                 local decimalDurability = math.random(0, 1)
@@ -508,7 +508,7 @@ function leotk_upgradeSystem.onUse(player, item, fromPosition, target, toPositio
                     item:setCustomAttribute("break", true)
                 end
             end
-        end, LeoTK_Upgrade_System_config.durationUpgrade * 1000)
+        end, Upgrade_System_config.durationUpgrade * 1000)
     elseif player:isVip() then
             addEvent(function()
                 if chance <= upgradeConfig.chanceBreak and currentUpgrade > 100 and (not ringSlot or ringSlot:getId() ~= upgradeConfig.ringProtect) then
@@ -557,8 +557,8 @@ function leotk_upgradeSystem.onUse(player, item, fromPosition, target, toPositio
                     local finalDescription = ""
                     itemAdd:setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, finalDescription)
                     end
-                    player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Breakdown the item [".. LeoTK_Upgrade_System_capitalizeFirstLetters(targetName) .. "] raised the level ".. currentUpgrade .." to the level ".. newUpgrade)
-                    player:getPosition():sendMagicEffect(LeoTK_Upgrade_System_config.failedEffect)
+                    player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Breakdown the item [".. Upgrade_System_capitalizeFirstLetters(targetName) .. "] raised the level ".. currentUpgrade .." to the level ".. newUpgrade)
+                    player:getPosition():sendMagicEffect(Upgrade_System_config.failedEffect)
                     item:setCustomAttribute("break", true)
                     itemAdd:setCustomAttribute("rank", category)
                 elseif chance <= upgradeConfig.chanceDownGrade and currentUpgrade > 4 and processingRecipe == false then
@@ -608,8 +608,8 @@ function leotk_upgradeSystem.onUse(player, item, fromPosition, target, toPositio
                     magicAttackDescription .. ")"..
                     "\nRank: ".. categoryTarget .." | Level: ".. itemAdd:getCustomAttribute("upgrade") .." | By: ".. player:getName()
                     itemAdd:setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, finalDescription)
-                    player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Downgrade the item [".. LeoTK_Upgrade_System_capitalizeFirstLetters(targetName) .. "] raised the level ".. currentUpgrade .." to the level ".. newUpgrade)
-                    player:getPosition():sendMagicEffect(LeoTK_Upgrade_System_config.failedEffect)
+                    player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Downgrade the item [".. Upgrade_System_capitalizeFirstLetters(targetName) .. "] raised the level ".. currentUpgrade .." to the level ".. newUpgrade)
+                    player:getPosition():sendMagicEffect(Upgrade_System_config.failedEffect)
                     itemAdd:setCustomAttribute("rank", category)
                     local randomDurability = math.random()
                     local decimalDurability = math.random(0, 2)
@@ -666,8 +666,8 @@ function leotk_upgradeSystem.onUse(player, item, fromPosition, target, toPositio
                         magicAttackDescription .. ")"..
                        "\nRank: ".. category .." | Level: ".. itemAdd:getCustomAttribute("upgrade") .." | By: ".. player:getName()
                         itemAdd:setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, finalDescription)
-                        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Success the item [".. LeoTK_Upgrade_System_capitalizeFirstLetters(targetName) .. "] raised the level ".. currentUpgrade .." to the level ".. newUpgrade)
-                        player:getPosition():sendMagicEffect(LeoTK_Upgrade_System_config.effect)
+                        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Success the item [".. Upgrade_System_capitalizeFirstLetters(targetName) .. "] raised the level ".. currentUpgrade .." to the level ".. newUpgrade)
+                        player:getPosition():sendMagicEffect(Upgrade_System_config.effect)
                         itemAdd:setCustomAttribute("rank", category)
                 else
                     local inbox = player:getStoreInbox()
@@ -723,8 +723,8 @@ function leotk_upgradeSystem.onUse(player, item, fromPosition, target, toPositio
                     "\nRank: ".. categoryTarget .." | Level: ".. itemAdd:getCustomAttribute("upgrade") .." | By: ".. player:getName()
                     itemAdd:setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, finalDescription)
                     end
-                    player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Failed the item [".. LeoTK_Upgrade_System_capitalizeFirstLetters(targetName) .. "] raised the level ".. currentUpgrade .." to the level ".. newUpgrade)
-                    player:getPosition():sendMagicEffect(LeoTK_Upgrade_System_config.failedEffect)
+                    player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Failed the item [".. Upgrade_System_capitalizeFirstLetters(targetName) .. "] raised the level ".. currentUpgrade .." to the level ".. newUpgrade)
+                    player:getPosition():sendMagicEffect(Upgrade_System_config.failedEffect)
                     itemAdd:setCustomAttribute("rank", category)
                     local randomDurability = math.random()
                     local decimalDurability = math.random(0, 1)
@@ -735,10 +735,10 @@ function leotk_upgradeSystem.onUse(player, item, fromPosition, target, toPositio
                         item:setCustomAttribute("break", true)
                     end
                 end
-            end, LeoTK_Upgrade_System_config.durationUpgrade * 1000)
+            end, Upgrade_System_config.durationUpgrade * 1000)
     end
     return true
 end
 
-leotk_upgradeSystem:aid(LeoTK_Upgrade_System_config.actionId.upgradetool)
-leotk_upgradeSystem:register()
+upgradeSystem:aid(Upgrade_System_config.actionId.upgradetool)
+upgradeSystem:register()

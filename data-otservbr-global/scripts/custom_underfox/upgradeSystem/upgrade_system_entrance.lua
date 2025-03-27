@@ -17,8 +17,8 @@ end
 function removeItemUpgradeSystem(player)
     local posTo = player:getPosition()
     local playerKV = player:kv()
-    playerKV:set(LeoTK_Upgrade_System_config.recipeOptionSelected.removeItem, 1)
-    playerKV:set(LeoTK_Upgrade_System_config.recipeOptionSelected.noRemoveItem, 0)
+    playerKV:set(Upgrade_System_config.recipeOptionSelected.removeItem, 1)
+    playerKV:set(Upgrade_System_config.recipeOptionSelected.noRemoveItem, 0)
         player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Lembrando que nesta opcao voce nao esta utilizando o seguro. Aperte Start, jogue o item em cima da forja e bate a pedra. Boa sorte.")
         local window = ModalWindow{
             title = "Upgrade System",
@@ -32,8 +32,8 @@ end
 function noRemoveItemUpgradeSystem(player)
     local posTo = player:getPosition()
     local playerKV = player:kv()
-    playerKV:set(LeoTK_Upgrade_System_config.recipeOptionSelected.removeItem, 0)
-    playerKV:set(LeoTK_Upgrade_System_config.recipeOptionSelected.noRemoveItem, 1)
+    playerKV:set(Upgrade_System_config.recipeOptionSelected.removeItem, 0)
+    playerKV:set(Upgrade_System_config.recipeOptionSelected.noRemoveItem, 1)
         player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Lembrando que nesta opcao voce esta utilizando o item seguro, logo, voce esta protegido contra downgrade. Seu Upgrade Stone pode falhar ou aprimorar. Clicka Start, jogue seu item na forja e bata a pedra. Boa sorte.")
         local window = ModalWindow{
             title = "Upgrade System",
@@ -50,7 +50,7 @@ function recipeUpgradeSystem(player, button, choice)
         title = "Upgrade System",
         message = "Item para protecao."
     }
-    local upgradeLevels = LeoTK_Upgrade_System_levels(LeoTK_Upgrade_System_config)
+    local upgradeLevels = Upgrade_System_levels(Upgrade_System_config)
     local blackList = {"itemUnique"}
     for _, level in ipairs(upgradeLevels) do
         if not table.contains(blackList, level) then
@@ -70,7 +70,7 @@ function recipeUpgradeSystem(player, button, choice)
 end
 
 local function generateRecipeFunctions()
-    local upgradeLevels = LeoTK_Upgrade_System_config
+    local upgradeLevels = Upgrade_System_config
     for level, data in pairs(upgradeLevels) do
         local functionName = level:lower() .. "Recipe"
         _G[functionName] = function(player, level)
@@ -81,7 +81,7 @@ local function generateRecipeFunctions()
             }
             if data.recipe and data.recipe.items then
                 for _, item in ipairs(data.recipe.items) do
-                    window:addChoice("" .. LeoTK_Upgrade_System_capitalizeFirstLetters(getItemName(item.id)) .. " x" .. item.count, function() 
+                    window:addChoice("" .. Upgrade_System_capitalizeFirstLetters(getItemName(item.id)) .. " x" .. item.count, function() 
                     end)
                 end
             end
@@ -98,9 +98,9 @@ function closeUpgradeSystem(player, button, choice)
     return true
 end
 
-local leotk_upgradeSystem_entrance = MoveEvent()
+local upgradeSystem_entrance = MoveEvent()
 
-function leotk_upgradeSystem_entrance.onStepIn(creature, item, position, fromPosition)
+function upgradeSystem_entrance.onStepIn(creature, item, position, fromPosition)
 	local player = creature:getPlayer()
 	if not player then
 		return true
@@ -109,6 +109,6 @@ function leotk_upgradeSystem_entrance.onStepIn(creature, item, position, fromPos
 	return true
 end
 
-leotk_upgradeSystem_entrance:type("stepin")
-leotk_upgradeSystem_entrance:aid(LeoTK_Upgrade_System_config.actionId.entranceforge)
-leotk_upgradeSystem_entrance:register()
+upgradeSystem_entrance:type("stepin")
+upgradeSystem_entrance:aid(Upgrade_System_config.actionId.entranceforge)
+upgradeSystem_entrance:register()

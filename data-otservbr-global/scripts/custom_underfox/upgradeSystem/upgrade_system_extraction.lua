@@ -1,6 +1,6 @@
 dofile("data-otservbr-global/scripts/custom_underfox/upgradeSystem/upgrade_system_lib.lua")
-local leotk_upgradeSystem_extraction = Action()
-function leotk_upgradeSystem_extraction.onUse(player, item, fromPosition, target, toPosition, isHotkey, tilePosition)
+local upgradeSystem_extraction = Action()
+function upgradeSystem_extraction.onUse(player, item, fromPosition, target, toPosition, isHotkey, tilePosition)
     local category = item:getCustomAttribute("rank"):gsub("^%l", string.upper)
     local categoryTarget = target:getCustomAttribute("rank")
     if categoryTarget then
@@ -27,8 +27,8 @@ function leotk_upgradeSystem_extraction.onUse(player, item, fromPosition, target
     local getUpgrade = target:getCustomAttribute("upgrade")
     local currentUpgrade = getUpgrade or 0
     local categoryName = item:getName()
-    local attackTypeName = LeoTK_Upgrade_System_attackTypes[elementType] or "None"
-    local upgradeConfig = LeoTK_Upgrade_System_config[category]
+    local attackTypeName = Upgrade_System_attackTypes[elementType] or "None"
+    local upgradeConfig = Upgrade_System_config[category]
     local currentArmor = target:getCustomAttribute("armor") or 0
     local currentAttack = target:getCustomAttribute("attack") or 0
     local currentHitChance = target:getCustomAttribute("hitChance") or 0
@@ -108,14 +108,14 @@ function leotk_upgradeSystem_extraction.onUse(player, item, fromPosition, target
             end
             itemAdd:setCustomAttribute("rank", category)
             player:sendTextMessage(MESSAGE_EVENT_ADVANCE,
-                "Extraction the item [" .. LeoTK_Upgrade_System_capitalizeFirstLetters(targetName) .. "]")
-            player:getPosition():sendMagicEffect(LeoTK_Upgrade_System_config.effect)
+                "Extraction the item [" .. Upgrade_System_capitalizeFirstLetters(targetName) .. "]")
+            player:getPosition():sendMagicEffect(Upgrade_System_config.effect)
             item:setName("condensed crystal")
             local cleanUpgrade = cleanName(item:getName())
             local newName = cleanUpgrade .. " +" .. currentUpgrade
             item:setName(newName)
             local itemTypeIndex = itemType:getType()
-            local typeName = LeoTK_Upgrade_System_equipmentNames[itemTypeIndex]
+            local typeName = Upgrade_System_equipmentNames[itemTypeIndex]
             if typeName then
                 item:setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, "Rank: " .. category.. "\nType: ".. typeName .."")
             else
@@ -123,9 +123,9 @@ function leotk_upgradeSystem_extraction.onUse(player, item, fromPosition, target
             end
         else
             player:sendTextMessage(MESSAGE_EVENT_ADVANCE,
-                "The extract tool is not compatible with the " .. LeoTK_Upgrade_System_capitalizeFirstLetters(targetName) ..
+                "The extract tool is not compatible with the " .. Upgrade_System_capitalizeFirstLetters(targetName) ..
                     ", both must have the same rank.")
-            player:getPosition():sendMagicEffect(LeoTK_Upgrade_System_config.failedEffect)
+            player:getPosition():sendMagicEffect(Upgrade_System_config.failedEffect)
         end
     elseif currentUpgrade < 1 and item:getCustomAttribute("tool") == "condensed tool" then
         if itemType:getType() == item:getCustomAttribute("type") then
@@ -174,23 +174,23 @@ function leotk_upgradeSystem_extraction.onUse(player, item, fromPosition, target
             itemAdd:setCustomAttribute("rank", category)
             itemAdd:setCustomAttribute("upgrade", item:getCustomAttribute("upgrade"))
             player:sendTextMessage(MESSAGE_EVENT_ADVANCE,
-                "Success the item [" .. LeoTK_Upgrade_System_capitalizeFirstLetters(targetName) .. "] raised the level " .. currentUpgrade ..
+                "Success the item [" .. Upgrade_System_capitalizeFirstLetters(targetName) .. "] raised the level " .. currentUpgrade ..
                     " to the level " .. item:getCustomAttribute("upgrade"))
-            player:getPosition():sendMagicEffect(LeoTK_Upgrade_System_config.effect)
+            player:getPosition():sendMagicEffect(Upgrade_System_config.effect)
             target:remove()
             item:remove()
         else
             player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The equipment is not valid for using condensed crystal.")
-            player:getPosition():sendMagicEffect(LeoTK_Upgrade_System_config.failedEffect)
+            player:getPosition():sendMagicEffect(Upgrade_System_config.failedEffect)
         return false
         end
     else
         player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "It is not possible to extract the power of this item.")
-        player:getPosition():sendMagicEffect(LeoTK_Upgrade_System_config.failedEffect)
+        player:getPosition():sendMagicEffect(Upgrade_System_config.failedEffect)
     end
     return true
 end
 
 
-leotk_upgradeSystem_extraction:aid(LeoTK_Upgrade_System_config.actionId.extractiontool)
-leotk_upgradeSystem_extraction:register()
+upgradeSystem_extraction:aid(Upgrade_System_config.actionId.extractiontool)
+upgradeSystem_extraction:register()
