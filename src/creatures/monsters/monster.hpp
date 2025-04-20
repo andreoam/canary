@@ -71,8 +71,6 @@ public:
 
 	bool isPushable() override;
 	bool isAttackable() const override;
-	bool canWalk() const;
-	bool canTarget() const;
 	bool canPushItems() const;
 	bool canPushCreatures() const;
 	bool isRewardBoss() const;
@@ -299,7 +297,6 @@ private:
 	Position masterPos;
 
 	bool isWalkingBack = false;
-	bool isWalkingTo = false;
 	bool isIdle = true;
 	bool extraMeleeAttack = false;
 	bool randomStepping = false;
@@ -368,9 +365,7 @@ private:
 
 	static std::vector<std::pair<int8_t, int8_t>> getPushItemLocationOptions(const Direction &direction);
 
-	void walkTo(const Position &walkToPosition);
 	void doWalkBack(uint32_t &flags, Direction &nextDirection, bool &result);
-	void doWalkTo(uint32_t &flags, Direction &nextDirection, bool &result);
 	void doFollowCreature(uint32_t &flags, Direction &nextDirection, bool &result);
 	void doRandomStep(Direction &nextDirection, bool &result);
 
