@@ -1,10 +1,10 @@
 local mType = Game.createMonsterType("Frost Undead Dragon")
 local monster = {}
 
-monster.description = "a Frost Undead Dragon"
+monster.description = "a frost undead dragon"
 monster.experience = 15000
 monster.outfit = {
-	lookType = 30000,
+	lookType = 2200,
 	lookHead = 0,
 	lookBody = 0,
 	lookLegs = 0,
@@ -13,7 +13,7 @@ monster.outfit = {
 	lookMount = 0,
 }
 
-monster.raceId = 317
+monster.raceId = 2637
 monster.Bestiary = {
 	class = "Undead",
 	race = BESTY_RACE_UNDEAD,

@@ -4,7 +4,7 @@ local monster = {}
 monster.description = "a frost skeleton"
 monster.experience = 15000
 monster.outfit = {
-	lookType = 30001,
+	lookType = 2201,
 	lookHead = 0,
 	lookBody = 0,
 	lookLegs = 0,
@@ -13,7 +13,7 @@ monster.outfit = {
 	lookMount = 0,
 }
 
-monster.raceId = 317
+monster.raceId = 2636
 monster.Bestiary = {
 	class = "Undead",
 	race = BESTY_RACE_UNDEAD,
