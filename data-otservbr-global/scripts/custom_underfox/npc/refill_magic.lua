@@ -71,16 +71,6 @@ end
 -- Atribuir os itens ao NPC
 npcConfig.shop = npcShopItems
 
--- Restante do script de interação do NPC
-local function creatureSayCallback(npc, player, type, message)
-	if message:lower() == "trade" then
-		player:openShopWindow(npcConfig.shop, { showBuy = false, showSell = true })
-		npcHandler:say("Here is my full list of wares!", npc, player)
-	else
-		npcHandler:say("I didn't understand that. Would you like to {trade}?", npc, player)
-	end 
-end
-
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:setMessage(MESSAGE_GREET, "Greetings, |PLAYERNAME|! I sell runes and potions. Would you like to check my {trade}?")
 npcHandler:setMessage(MESSAGE_FAREWELL, "Good luck with your adventures, |PLAYERNAME|!")

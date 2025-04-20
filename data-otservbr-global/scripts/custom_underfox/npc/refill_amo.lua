@@ -26,8 +26,8 @@ npcConfig.flags = {
 npcConfig.voices = {
 	interval = 15000,
 	chance = 50,
-	{ text = "Precisa de Munições?" },
-	{ text = "Venha conferir o melhor preço de munições." },
+	{ text = "Precisa de Muniï¿½ï¿½es?" },
+	{ text = "Venha conferir o melhor preï¿½o de muniï¿½ï¿½es." },
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -68,22 +68,12 @@ end
 -- Atribuir os itens ao NPC
 npcConfig.shop = npcShopItems
 
--- Restante do script de interação do NPC
-local function creatureSayCallback(npc, player, type, message)
-	if message:lower() == "trade" then
-		player:openShopWindow(npcConfig.shop, { showBuy = false, showSell = true })
-		npcHandler:say("Here is my full list of wares!", npc, player)
-	else
-		npcHandler:say("I didn't understand that. Would you like to {trade}?", npc, player)
-	end
-end
-
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:setMessage(MESSAGE_GREET, "Greetings, |PLAYERNAME|! I sell distance equipments. Would you like to check my {trade}?")
 npcHandler:setMessage(MESSAGE_FAREWELL, "Good luck with your adventures, |PLAYERNAME|!")
 npcHandler:setMessage(MESSAGE_WALKAWAY, "Come back if you need more supplies!")
 
--- Configurações de compra e venda no NPC
+-- Configuraï¿½ï¿½es de compra e venda no NPC
 npcType.onBuyItem = function(npc, player, itemId, subType, amount, ignore, inBackpacks, totalCost)
     npc:sellItem(player, itemId, amount, subType, 0, ignore, inBackpacks)
 end

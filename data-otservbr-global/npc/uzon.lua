@@ -88,10 +88,11 @@ addTravelKeyword("svargrond", "Do you seek a ride to Svargrond for |TRAVELCOST|?
 addTravelKeyword("kazordoon", "Do you seek a ride to Kazordoon for |TRAVELCOST|?", 70, Position(32588, 31942, 0))
 addTravelKeyword("kazor", "Do you seek a ride to Kazordoon for |TRAVELCOST|?", 70, Position(32588, 31942, 0))
 addTravelKeyword("issavi", "Do you seek a ride to Issavi for |TRAVELCOST|?", 100, Position(33957, 31515, 0))
+addTravelKeyword("arcadia", "Do you seek a ride to Arcadia for |TRAVELCOST|?", 100, Position(31594, 31642, 4))
 
 -- Basic
 keywordHandler:addKeyword({ "name" }, StdModule.say, { npcHandler = npcHandler, text = "I am known as Uzon Ibn Kalith." })
-keywordHandler:addKeyword({ "job" }, StdModule.say, { npcHandler = npcHandler, text = "I am a licensed Darashian carpet pilot. I can bring you to {Darashia}, {Kazordoon}, {Svargrond} or {Edron}." })
+keywordHandler:addKeyword({ "job" }, StdModule.say, { npcHandler = npcHandler, text = "I am a licensed Darashian carpet pilot. I can bring you to {Darashia}, {Kazordoon}, {Arcadia}, {Svargrond} or {Edron}." })
 keywordHandler:addKeyword({ "caliph" }, StdModule.say, { npcHandler = npcHandler, text = "The caliph welcomes travellers to his land." })
 keywordHandler:addKeyword({ "kazzan" }, StdModule.say, { npcHandler = npcHandler, text = "The caliph welcomes travellers to his land." })
 keywordHandler:addKeyword({ "daraman" }, StdModule.say, { npcHandler = npcHandler, text = "Oh, there is so much to tell about Daraman. You better travel to Darama to learn about his teachings." })
@@ -106,10 +107,10 @@ keywordHandler:addKeyword({ "flying" }, StdModule.say, { npcHandler = npcHandler
 keywordHandler:addKeyword({ "fly" }, StdModule.say, { npcHandler = npcHandler, text = "I transport travellers to the continent of Darama for a small fee. So many want to see the wonders of the desert and learn the secrets of Darama." })
 keywordHandler:addKeyword({ "new" }, StdModule.say, { npcHandler = npcHandler, text = "I heard too many news to recall them all." })
 keywordHandler:addKeyword({ "rumors" }, StdModule.say, { npcHandler = npcHandler, text = "I heard too many news to recall them all." })
-keywordHandler:addKeyword({ "passage" }, StdModule.say, { npcHandler = npcHandler, text = "I can fly you to {Darashia} on Darama, {Kazordoon}, {Svargrond}, {Issavi}, {Farmine} or {Edron} if you like. Where do you want to go?" })
-keywordHandler:addKeyword({ "transport" }, StdModule.say, { npcHandler = npcHandler, text = "I can fly you to {Darashia} on Darama, {Kazordoon}, {Svargrond} or {Edron} if you like. Where do you want to go?" })
-keywordHandler:addKeyword({ "ride" }, StdModule.say, { npcHandler = npcHandler, text = "I can fly you to {Darashia} on Darama, {Kazordoon}, {Svargrond} or {Edron} if you like. Where do you want to go?" })
-keywordHandler:addKeyword({ "trip" }, StdModule.say, { npcHandler = npcHandler, text = "I can fly you to {Darashia} on Darama, {Kazordoon}, {Svargrond} or {Edron} if you like. Where do you want to go?" })
+keywordHandler:addKeyword({ "passage" }, StdModule.say, { npcHandler = npcHandler, text = "I can fly you to {Darashia} on Darama, {Kazordoon}, {Arcadia}, {Svargrond}, {Issavi}, {Farmine} or {Edron} if you like. Where do you want to go?" })
+keywordHandler:addKeyword({ "transport" }, StdModule.say, { npcHandler = npcHandler, text = "I can fly you to {Darashia} on Darama, {Kazordoon}, {Arcadia}, {Svargrond} or {Edron} if you like. Where do you want to go?" })
+keywordHandler:addKeyword({ "ride" }, StdModule.say, { npcHandler = npcHandler, text = "I can fly you to {Darashia} on Darama, {Kazordoon}, {Arcadia}, {Svargrond} or {Edron} if you like. Where do you want to go?" })
+keywordHandler:addKeyword({ "trip" }, StdModule.say, { npcHandler = npcHandler, text = "I can fly you to {Darashia} on Darama, {Kazordoon}, {Arcadia}, {Svargrond} or {Edron} if you like. Where do you want to go?" })
 keywordHandler:addKeyword({ "time" }, StdModule.say, { npcHandler = npcHandler, text = "It's 3:42 pm right now. The next flight is scheduled soon." })
 
 npcHandler:setMessage(MESSAGE_GREET, "Daraman's blessings, traveller |PLAYERNAME|.")

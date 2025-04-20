@@ -114,8 +114,9 @@ addTravelKeyword("edron", "Edron", 40, Position(33193, 31784, 3))
 addTravelKeyword("hills", "the Femor Hills", 60, Position(32536, 31837, 4))
 addTravelKeyword("issavi", "Issavi", 100, Position(33957, 31515, 0))
 addTravelKeyword("marapur", "Marapur", 70, Position(33805, 32767, 2))
+addTravelKeyword("arcadia", "", 100, Position(31594, 31642, 4))
 
-keywordHandler:addKeyword({ "fly" }, StdModule.say, { npcHandler = npcHandler, text = "I can fly you to {Darashia}, {Svargrond}, {Edron}, {Issavi}, {Zao}, {Femor Hills} or to {Marapur} if you like. Where do you want to go?" })
+keywordHandler:addKeyword({ "fly" }, StdModule.say, { npcHandler = npcHandler, text = "I can fly you to {Darashia}, {Arcadia}, {Svargrond}, {Edron}, {Issavi}, {Zao}, {Femor Hills} or to {Marapur} if you like. Where do you want to go?" })
 
 npcHandler:setMessage(MESSAGE_GREET, "Greetings, traveller |PLAYERNAME|. Where do you want me to {fly} you? Or do you need a weekly ticket for the Kazordoon public lorry transport?")
 npcHandler:setMessage(MESSAGE_FAREWELL, "Good bye!")

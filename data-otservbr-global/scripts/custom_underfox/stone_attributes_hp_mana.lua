@@ -252,9 +252,9 @@ function closeStoneAttributes(player, button, choice)
     return true
 end
 
-local stoneAttributes = Action()
+local leotk_stoneAttributes = Action()
 
-function stoneAttributes.onUse(player, item, fromPosition, target, toPosition, isHotkey, tilePosition)
+function leotk_stoneAttributes.onUse(player, item, fromPosition, target, toPosition, isHotkey, tilePosition)
     if not Tile(player:getPosition()):hasFlag(TILESTATE_PROTECTIONZONE) then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Can only be used in a protected area.")
         return true
@@ -265,5 +265,5 @@ function stoneAttributes.onUse(player, item, fromPosition, target, toPosition, i
     return true
 end
 
-stoneAttributes:id(config.stoneId)
-stoneAttributes:register()
+leotk_stoneAttributes:id(config.stoneId)
+leotk_stoneAttributes:register()

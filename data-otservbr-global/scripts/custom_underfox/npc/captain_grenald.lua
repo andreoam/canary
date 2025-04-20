@@ -57,18 +57,18 @@ local function addTravelKeyword(keyword, cost, destination)
 	travelKeyword:addChildKeyword({ "no" }, StdModule.say, { npcHandler = npcHandler, text = "We would like to serve you some time.", reset = true })
 end
 
-addTravelKeyword("carlin", 180, Position(32387, 31820, 6))
-addTravelKeyword("edron", 160, Position(33175, 31764, 6))
+addTravelKeyword("carlin", 100, Position(32387, 31820, 6))
+addTravelKeyword("edron", 200, Position(33175, 31764, 6))
 addTravelKeyword("venore", 150, Position(32954, 32022, 6))
-addTravelKeyword("svargrond", 110, Position(32341, 31108, 6))
+addTravelKeyword("svargrond", 100, Position(32341, 31108, 6))
 
 
 -- Kick
 keywordHandler:addKeyword({ "kick" }, StdModule.kick, { npcHandler = npcHandler, destination = { Position(31589, 31755, 6) } })
 
 -- Basic
-keywordHandler:addKeyword({ "passage" }, StdModule.say, { npcHandler = npcHandler, text = "Where do you want to go? To {Carlin}, {Edron}, {Venore}, or {Svargrond}?" })
-keywordHandler:addKeyword({ "sail" }, StdModule.say, { npcHandler = npcHandler, text = "Where do you want to go? To {Carlin}, {Edron}, {Venore}, or {Svargrond}?" })
+keywordHandler:addKeyword({ "passage" }, StdModule.say, { npcHandler = npcHandler, text = "Where do you want to go? To {Carlin}, {Arcadia}, {Edron}, {Venore}, or {Svargrond}?" })
+keywordHandler:addKeyword({ "sail" }, StdModule.say, { npcHandler = npcHandler, text = "Where do you want to go? To {Carlin}, {Arcadia}, {Edron}, {Venore}, or {Svargrond}?" })
 
 npcHandler:setMessage(MESSAGE_GREET, "Welcome on board, |PLAYERNAME|. Where can I {sail} you today?")
 npcHandler:setMessage(MESSAGE_FAREWELL, "Good bye. Recommend us if you were satisfied with our service.")

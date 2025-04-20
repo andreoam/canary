@@ -61,6 +61,8 @@ function shopSystemGlobalEvent.onThink(interval)
 	local started = os.mtime and os.mtime() or os.time()
 	local addedItems, waitingItems = 0, 0
 	local added = false
+	local receivedPlayers = {} -- Nova tabela para armazenar nomes dos jogadores
+
 
 	local results = getResults()
 	if(not results) then
@@ -125,20 +127,20 @@ function shopSystemGlobalEvent.onThink(interval)
 						end
 
 						if(received_item) then
-							player:sendTextMessage(messageType, "You received >> ".. add_item_name .." << from OTS shop.")
+							player:sendTextMessage(messageType, "You received ".. add_item_name .." from Shop.")
 							db.query("DELETE FROM `z_ots_comunication` WHERE `id` = " .. id .. ";")
 							db.query("UPDATE `z_shop_history` SET `trans_state`='realized', `trans_real`=" .. os.time() .. " WHERE comunication_id = " .. id .. ";")
 							player:save()
 							added = true
 						else
-							player:sendTextMessage(messageType, '>> '.. add_item_name ..' << from OTS shop is waiting for you. Please make place for this item in your backpack/hands and wait about '.. interval ..' seconds to get it.')
+							player:sendTextMessage(messageType, ''.. add_item_name ..' from Shop is waiting for you. Please make place for this item in your backpack/hands and wait about '.. interval ..' seconds to get it.')
 						end
 					else
-						player:sendTextMessage(messageType, '>> '.. add_item_name ..' << from OTS shop is waiting for you. It weight is '.. (full_weight / 100) ..' oz., you have only '.. (free_cap / 100) ..' oz. free capacity. Put some items in depot and wait about '.. interval ..' seconds to get it.')
+						player:sendTextMessage(messageType, ''.. add_item_name ..' from Shop is waiting for you. It weight is '.. (full_weight / 100) ..' oz., you have only '.. (free_cap / 100) ..' oz. free capacity. Put some items in depot and wait about '.. interval ..' seconds to get it.')
 					end
 				end
 			elseif(add_item_type == 'addon') then
-				player:sendTextMessage(messageType, "You received >> ".. add_item_name .." << from OTS shop.")
+				player:sendTextMessage(messageType, "You received ".. add_item_name .." from Shop.")
 				player:getPosition():sendMagicEffect(CONST_ME_GIFT_WRAPS)
 				player:addOutfitAddon(param1, param3)
 				player:addOutfitAddon(param2, param4)
@@ -148,7 +150,7 @@ function shopSystemGlobalEvent.onThink(interval)
 				added = true
 			elseif(add_item_type == 'mount') then
 				player:addMount(param1)
-				player:sendTextMessage(messageType, "You received >> ".. add_item_name .." << from OTS shop.")
+				player:sendTextMessage(messageType, "You received ".. add_item_name .." from Shop.")
 				player:getPosition():sendMagicEffect(CONST_ME_GIFT_WRAPS)
 
 				db.query("DELETE FROM `z_ots_comunication` WHERE `id` = " .. id .. ";")
@@ -159,13 +161,21 @@ function shopSystemGlobalEvent.onThink(interval)
 		end
 
 		if(added) then
-			addedItems = addedItems + 1
-		else
-			waitingItems = waitingItems + 1
-		end
+            addedItems = addedItems + 1 -- Incrementa o contador
+            table.insert(receivedPlayers, {
+                playerName = v.name,
+                itemName = v.param6
+            })
+        else
+            waitingItems = waitingItems + 1
+        end
 	end
 
-	print(">> Shopsystem, added " .. addedItems .. " items. Still waiting with " .. waitingItems .. " items.")
+	if #receivedPlayers > 0 then
+		local lastItem = receivedPlayers[#receivedPlayers]
+		print(">> Shopsystem: Adicionado " .. lastItem.itemName .. " ao player " .. lastItem.playerName .. ".")
+	end
+	    
 	return true
 end
 
