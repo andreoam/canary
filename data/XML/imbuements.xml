@@ -2,6 +2,7 @@
 	<base id="1" name="Basic" price="5000" protectionPrice="10000" percent="90" removecost="15000" duration="72000" />
 	<base id="2" name="Intricate" price="30000" protectionPrice="30000" percent="70" removecost="15000" duration="72000" />
 	<base id="3" name="Powerful" price="200000" protectionPrice="50000" percent="50" removecost="15000" duration="72000" />
+	<base id="4" name="Divine" price="200000" protectionPrice="100000" percent="25" removecost="30000" duration="144000" />
 
 	<!-- Category Names -->
 	<category id="0" name="Elemental Damage" agressive="1" />
