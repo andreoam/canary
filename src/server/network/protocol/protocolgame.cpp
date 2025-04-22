@@ -131,7 +131,7 @@ namespace {
 					if (imbuementInfo.duration > 0) {
 						auto imbuement = *imbuementInfo.imbuement;
 						if (imbuement.combatType != COMBAT_NONE) {
-							msg.addDouble(static_cast<double>(imbuement.elementDamage)/100);
+							msg.addDouble(static_cast<double>(imbuement.elementDamage) / 100);
 							msg.addByte(getCipbiaElement(imbuement.combatType));
 							imbueDmg = true;
 							break;
@@ -213,7 +213,7 @@ namespace {
 				int16_t clientModifier = std::clamp(10000 - static_cast<int16_t>(damageModifiers[i]), -10000, 10000);
 				g_logger().debug("[{}] CombatType: {}, Damage Modifier: {}, Resulting Client Modifier: {}", __FUNCTION__, i, damageModifiers[i], clientModifier);
 				msg.addByte(getCipbiaElement(indexToCombatType(i)));
-				msg.addDouble(clientModifier/10000.0, 4);
+				msg.addDouble(clientModifier / 10000.0, 4);
 				++combats;
 			}
 		}
@@ -7993,20 +7993,20 @@ void ProtocolGame::AddPlayerSkills(NetworkMessage &msg) {
 		msg.addByte(0x00); // unknown
 		msg.add<uint32_t>(player->getCapacity()); // total capacity
 		msg.add<uint32_t>(player->getBaseCapacity()); // base total capacity
-		
+
 		// damage/healing, max damage and converted damage based on weapon type
 		std::shared_ptr<Item> weapon = player->getWeapon(CONST_SLOT_LEFT);
 		if (weapon) {
 			const ItemType &it = Item::items[weapon->getID()];
 			if (it.weaponType == WEAPON_WAND) {
-					msg.add<uint16_t>(it.maxHitChance/100); // damage / healing
-					msg.addByte(it.abilities->elementType); // getCipbiaElement
+				msg.add<uint16_t>(it.maxHitChance / 100); // damage / healing
+				msg.addByte(it.abilities->elementType); // getCipbiaElement
 
-					msg.addByte(static_cast<uint32_t>(it.maxHitChance) / 100); // max damage
-					msg.addByte(getCipbiaElement(it.abilities->elementType)); // getCipbiaElement
+				msg.addByte(static_cast<uint32_t>(it.maxHitChance) / 100); // max damage
+				msg.addByte(getCipbiaElement(it.abilities->elementType)); // getCipbiaElement
 
-					msg.addDouble(0x00); // converted damage
-					msg.addByte(CIPBIA_ELEMENTAL_ENERGY); // getCipbiaElement
+				msg.addDouble(0x00); // converted damage
+				msg.addByte(CIPBIA_ELEMENTAL_ENERGY); // getCipbiaElement
 
 			} else if (it.weaponType == WEAPON_DISTANCE || it.weaponType == WEAPON_AMMO || it.weaponType == WEAPON_MISSILE) {
 				int32_t attackValue = weapon->getAttack();
@@ -8025,18 +8025,18 @@ void ProtocolGame::AddPlayerSkills(NetworkMessage &msg) {
 				}
 
 				if (attackValue) {
-					msg.add<uint16_t>(attackValue);   // damage / healing
+					msg.add<uint16_t>(attackValue); // damage / healing
 				} else {
 					msg.addByte(0);
 				}
 
 				msg.add<uint16_t>(maxDamage); // max damage
-				msg.addByte(CIPBIA_ELEMENTAL_PHYSICAL);  // getCipbiaElement
+				msg.addByte(CIPBIA_ELEMENTAL_PHYSICAL); // getCipbiaElement
 
 				if (it.abilities && it.abilities->elementType != COMBAT_NONE) {
 
 				} else {
-					handleImbuementDamage(msg, player);   // converted damage
+					handleImbuementDamage(msg, player); // converted damage
 				}
 
 			} else {
@@ -8049,15 +8049,15 @@ void ProtocolGame::AddPlayerSkills(NetworkMessage &msg) {
 				}
 
 				if (attackValue) {
-						msg.add<uint16_t>(attackValue);  // damage / healing
-					} else {
-						msg.addByte(0);
-					}
-					msg.add<uint16_t>(maxDamage);  // max damage
-					msg.addByte(CIPBIA_ELEMENTAL_PHYSICAL); 
-
-					handleImbuementDamage(msg, player);   // converted damage
+					msg.add<uint16_t>(attackValue); // damage / healing
+				} else {
+					msg.addByte(0);
 				}
+				msg.add<uint16_t>(maxDamage); // max damage
+				msg.addByte(CIPBIA_ELEMENTAL_PHYSICAL);
+
+				handleImbuementDamage(msg, player); // converted damage
+			}
 		} else {
 			float attackFactor = player->getAttackFactor();
 			int32_t attackSkill = player->getSkillLevel(SKILL_FIST);
@@ -8067,12 +8067,11 @@ void ProtocolGame::AddPlayerSkills(NetworkMessage &msg) {
 
 			msg.add<uint16_t>(attackValue); // damage / healing
 
-			msg.add<uint16_t>(maxDamage);  // max damage
+			msg.add<uint16_t>(maxDamage); // max damage
 			msg.addByte(CIPBIA_ELEMENTAL_PHYSICAL);
 
-			 msg.addDouble(0x00); // converted damage
-			 msg.addByte(CIPBIA_ELEMENTAL_ENERGY); // getCipbiaElement
-
+			msg.addDouble(0x00); // converted damage
+			msg.addByte(CIPBIA_ELEMENTAL_ENERGY); // getCipbiaElement
 		}
 
 		const auto lifeLeechAmount = player->getSkillLevel(SKILL_LIFE_LEECH_AMOUNT) / 10;
@@ -8086,25 +8085,24 @@ void ProtocolGame::AddPlayerSkills(NetworkMessage &msg) {
 			msg.addDouble(0x00);
 		}
 		if (manaLeechAmount > 0) {
-			msg.addDouble(manaLeechAmount, 5);  // 5 means the precision - check which is correct
+			msg.addDouble(manaLeechAmount, 5); // 5 means the precision - check which is correct
 		} else {
 			msg.addDouble(0x00);
 		}
 		if (criticalChance > 0) {
-			msg.addDouble(criticalChance, 5);  // 5 means the precision - check which is correct
+			msg.addDouble(criticalChance, 5); // 5 means the precision - check which is correct
 		} else {
 			msg.addDouble(0x00);
 		}
 		if (criticalDamage > 0) {
-			msg.addDouble(criticalDamage, 5);  // 5 means the precision - check which is correct
+			msg.addDouble(criticalDamage, 5); // 5 means the precision - check which is correct
 		} else {
 			msg.addDouble(0x00);
 		}
 
-
 		double_t amplificationChance = 0;
 		if (const auto &feetItem = player->getInventoryItem(CONST_SLOT_FEET); feetItem) {
-			amplificationChance += 0; //feetItem->getAmplificationChance(); // code prepared for the amplification feature.
+			amplificationChance += 0; // feetItem->getAmplificationChance(); // code prepared for the amplification feature.
 		}
 
 		double_t onslaught = 0;
@@ -8114,17 +8112,17 @@ void ProtocolGame::AddPlayerSkills(NetworkMessage &msg) {
 				onslaught = item->getFatalChance() / 100.0;
 			}
 			onslaught += onslaught * amplificationChance;
-			msg.addDouble(onslaught, 5);  // 5 means the precision - check which is correct
+			msg.addDouble(onslaught, 5); // 5 means the precision - check which is correct
 		} else {
 			msg.addDouble(0x00); // ONSLAUGHT
 		}
-		
+
 		msg.add<uint16_t>(player->getDefense());
 		msg.add<uint16_t>(player->getArmor());
 
 		// Wheel of destiny mitigation
 		if (g_configManager().getBoolean(TOGGLE_WHEELSYSTEM)) {
-			msg.addDouble(player->getMitigation()/10, 5); // 5 means the precision - check which is correct
+			msg.addDouble(player->getMitigation() / 10, 5); // 5 means the precision - check which is correct
 		} else {
 			msg.addDouble(0);
 		}
@@ -8141,9 +8139,7 @@ void ProtocolGame::AddPlayerSkills(NetworkMessage &msg) {
 			msg.addDouble(0x00); // ruse
 		}
 
-
 		msg.add<uint16_t>(static_cast<uint16_t>(player->getReflectFlat(COMBAT_PHYSICALDAMAGE))); // Reflect
-
 
 		// Store the "combats" to increase in absorb values function and send to client later
 		uint8_t combats = 0;
@@ -8156,9 +8152,6 @@ void ProtocolGame::AddPlayerSkills(NetworkMessage &msg) {
 		msg.setBufferPosition(startCombats);
 		msg.addByte(combats);
 		msg.setBufferPosition(endCombats);
-
-
-
 
 		double_t momentum = 0;
 		if (const auto &item = player->getInventoryItem(CONST_SLOT_HEAD); item) {
