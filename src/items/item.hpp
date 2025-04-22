@@ -707,7 +707,7 @@ public:
 		return items[id].upgradeClassification;
 	}
 
-	//ItemLevel Functions -->
+	// ItemLevel Functions -->
 
 	uint8_t getItemLevel() const {
 		if (!hasAttribute(ItemAttribute_t::ITEMLEVEL)) {
@@ -718,7 +718,7 @@ public:
 
 		return itemlevel;
 	}
-	
+
 	void setItemLevel(uint8_t itemlevel) {
 
 		if (items[id].upgradeClassification) {
@@ -726,7 +726,7 @@ public:
 		}
 	}
 
-	//ItemLevel Functions <--
+	// ItemLevel Functions <--
 
 	void updateTileFlags();
 	bool canBeMoved() const;

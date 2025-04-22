@@ -863,7 +863,7 @@ Attr_ReadValue Item::readAttr(AttrTypes_t attr, PropStream &propStream) {
 			break;
 		}
 
-		// ItemLevel Functions -->
+			// ItemLevel Functions -->
 
 		case ATTR_ITEMLEVEL: {
 			uint8_t itemlevel;
@@ -876,7 +876,7 @@ Attr_ReadValue Item::readAttr(AttrTypes_t attr, PropStream &propStream) {
 			break;
 		}
 
-		// ItemLevel Functions <--
+			// ItemLevel Functions <--
 
 		case ATTR_AMOUNT: {
 			uint16_t amount;
@@ -2160,15 +2160,15 @@ SoundEffect_t Item::getMovementSound(const std::shared_ptr<Cylinder> &toCylinder
 
 std::string Item::parseClassificationDescription(const std::shared_ptr<Item> &item) {
 	std::ostringstream string;
-	//ItemLevel Functions -->
+	// ItemLevel Functions -->
 	if (item && item->getItemLevel() >= 1) {
 		string << std::endl
-		<< " Level: " << std::to_string(item->getItemLevel());
+			   << " Level: " << std::to_string(item->getItemLevel());
 		if (item->getWeaponType() == 6) {
 			string << " (Increase Magic Level +" << std::to_string(item->getItemLevel()) << ").";
 		}
 	}
-	//ItemLevel Functions <--
+	// ItemLevel Functions <--
 	if (item && item->getClassification() >= 1) {
 		string << std::endl
 			   << "Classification: " << std::to_string(item->getClassification()) << " Tier: " << std::to_string(item->getTier());

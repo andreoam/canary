@@ -91,11 +91,10 @@ void ItemFunctions::init(lua_State* L) {
 	Lua::registerMethod(L, "Item", "setTier", ItemFunctions::luaItemSetTier);
 	Lua::registerMethod(L, "Item", "getClassification", ItemFunctions::luaItemGetClassification);
 
-		// ItemLevel Functions -->
-	Lua::registerMethod(L, "Item", "getItemLevel", ItemFunctions::luaItemGetItemLevel); 
+	// ItemLevel Functions -->
+	Lua::registerMethod(L, "Item", "getItemLevel", ItemFunctions::luaItemGetItemLevel);
 	Lua::registerMethod(L, "Item", "setItemLevel", ItemFunctions::luaItemSetItemLevel);
-		// ItemLevel Functions <--
-
+	// ItemLevel Functions <--
 
 	Lua::registerMethod(L, "Item", "canReceiveAutoCarpet", ItemFunctions::luaItemCanReceiveAutoCarpet);
 

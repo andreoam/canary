@@ -94,7 +94,7 @@ private:
 	static int luaItemGetItemLevel(lua_State* L);
 	static int luaItemSetItemLevel(lua_State* L);
 	// ItemLevel Functions <--
-	
+
 	static int luaItemActor(lua_State* L);
 
 	static int luaItemSetShader(lua_State* L);
