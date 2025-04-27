@@ -82593,12 +82593,15 @@ Granted by TibiaGoals.com"/>
 </item>
 	<item id="60165" article="a" name="basic upgrade stone">
     	<attribute key="primarytype" value="utilities"/>
+		<attribute key="description" value="Success Rate: 40% + 10% for VIP players, Chance to Break: 10%, Chance to Downgrade: 10%, Cost to Use: 250k."/>
 	</item>
 	<item id="60166" article="a" name="refined upgrade stone">
     	<attribute key="primarytype" value="utilities"/>
+		<attribute key="description" value="Success Rate: 50% + 10% for VIP players, Chance to Break: 5%, Chance to Downgrade: 30%, Cost to Use: 500k."/>
 	</item>
 	<item id="60167" article="a" name="epic upgrade stone">
     	<attribute key="primarytype" value="utilities"/>
+		<attribute key="description" value="Success Rate: 60% + 10% for VIP players, Chance to Break: 0%, Chance to Downgrade: 50%, Cost to Use: 1kk."/>
 	</item>
 	<item id="60168" article="a" name="Pacote Bronze"> 
     	<attribute key="primarytype" value="utilities"/>

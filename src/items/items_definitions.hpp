@@ -244,7 +244,8 @@ enum AttrTypes_t {
 	ATTR_STORE_INBOX_CATEGORY = 42,
 	ATTR_OWNER = 43,
 	ATTR_OBTAINCONTAINER = 44,
-	ATTR_ITEMLEVEL = 45, // ItemLevel Functions
+	ATTR_ELEMENT = 45,
+	ATTR_ITEMLEVEL = 46, // ItemLevel Functions
 
 	// Always the last
 	ATTR_NONE = 0

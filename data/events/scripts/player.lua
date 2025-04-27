@@ -647,6 +647,25 @@ function Player:onCombat(target, item, primaryDamage, primaryType, secondaryDama
 		return primaryDamage, primaryType, secondaryDamage, secondaryType
 	end
 
+	if ItemType(item:getId()):getWeaponType() == WEAPON_WAND then
+		local getUpgrade = item:getCustomAttribute("upgrade") or 0
+		local category = item:getCustomAttribute("rank")
+		if category and Upgrade_System_config[category] then
+			local upgradeConfig = Upgrade_System_config[category]
+			local magicAttack = getUpgrade * Upgrade_System_config.addMagicAttack
+			if getUpgrade > 0 and table.contains({
+				3065, 3066, 3067, 3069, 3070, 8082, 8083, 8084, 12732, 16117, 16118, 
+				28716, 30400, 34091, 34151, 35521, 36674, 36675, 39163, 43885, 43886, 
+				3071, 3072, 3073, 3074, 3075, 8092, 8093, 8094, 12603, 12741, 16096, 
+				16115, 17111, 21348, 25760, 27457, 28717, 30399, 34090, 34152, 35522, 
+				36668, 36669, 39162, 43882, 43883
+			}, item:getId()) then
+				return primaryDamage - magicAttack, primaryType, secondaryDamage, secondaryType
+			end
+		end
+		return primaryDamage, primaryType, secondaryDamage, secondaryType
+	end
+
 	if ItemType(item:getId()):getWeaponType() == WEAPON_AMMO then
 		if table.contains({ ITEM_OLD_DIAMOND_ARROW, ITEM_DIAMOND_ARROW }, item:getId()) then
 			return primaryDamage, primaryType, secondaryDamage, secondaryType
