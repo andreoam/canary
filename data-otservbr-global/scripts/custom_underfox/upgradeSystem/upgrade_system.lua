@@ -120,8 +120,8 @@ function upgradeSystem.onUse(player, item, fromPosition, target, toPosition, isH
         return false
     end
 
-    local chanceVip = upgradeConfig.chanceBase / (currentUpgrade + 1) + Upgrade_System_config.chanceBonus
-    local chanceNormal = upgradeConfig.chanceBase / (currentUpgrade + 1)
+    local chanceNormal = upgradeConfig.chanceBase * (1 - currentUpgrade * 0.05)
+    local chanceVip = chanceNormal + Upgrade_System_config.chanceBonus
     local attackTypeName = Upgrade_System_attackTypes[elementType] or "None"
     local currentArmor = getAttributeOrDefault(target, "armor", 0)
     local currentAttack = getAttributeOrDefault(target, "attack", 0)

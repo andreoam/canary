@@ -1,51 +1,63 @@
 Upgrade_System_config = {
     
+    -- actions ids
     upgradetool = 62990,
     extractiontool = 62992,
+    entranceforge = 62993,
+    forge = 62994,
     
+    -- levels
     maxLevelUp = 15,
     removeOnUse = true,
     costGoldCoin = true,
     addLevel = 1,
-    addArmor = 2,
-    addAttack = 2,
+    addArmor = 5,
+    addAttack = 10,
     addMagicAttack = 20,
-    addHitChance = 2,
-    addElement = 2,
-    addDefense = 2,
+    addHitChance = 5,
+    addElement = 10,
+    addDefense = 5,
     
+    -- effect
     effect = CONST_ME_FIREWORK_YELLOW,
     failedEffect = CONST_ME_POFF,
     durationUpgrade = 0,
     itemNotValid = "This item is not valid for upgrade",
     chanceBonus = 0.10,    -- +10% for players VIP
 
-    ["Basic"] = {
+    -- stones
+    ["Normal"] = {
         enable = true,
-        itemId = 60165,
-        price = 5,            -- Price to buy on NPC
-        goldCoin = 250000,     -- Price to use (250k)
-        chanceBase = 0.40,     -- 30% chance success
-        chanceBreak = 0.10,    -- 10% chance break
+        gem = 3041,             -- ID do item de craft
+        minedgem = 60207,       -- ID da gema minerada
+        itemId = 60165,         -- ID do item de upgrade
+        price = 10,             -- Price to buy on NPC
+        goldCoin = 2500000,     -- Price to use
+        chanceBase = 0.60,      -- 30% chance success
+        chanceBreak = 0.10,     -- 10% chance break
         chanceDownGrade = 0.30, -- 30% chance downgrade        
-    },
-
-    ["Refined"] = {
-        enable = true,
-        itemId = 60166,
-        price = 7,
-        goldCoin = 500000,
-        chanceBase = 0.50,
-        chanceBreak = 0.05,
-        chanceDownGrade = 0.30,
     },
 
     ["Epic"] = {
         enable = true,
+        gem = 3038,
+        minedgem = 60206,
+        itemId = 60166,
+        price = 15,
+        goldCoin = 5000000,
+        chanceBase = 0.70,
+        chanceBreak = 0.05,
+        chanceDownGrade = 0.30,
+    },
+
+    ["Refined"] = {
+        enable = true,
+        gem = 3039,
+        minedgem = 60208,
         itemId = 60167,
-        price = 10,
-        goldCoin = 750000,
-        chanceBase = 0.60,
+        price = 20,
+        goldCoin = 7500000,
+        chanceBase = 0.80,
         chanceBreak = 0.00,
         chanceDownGrade = 0.10,
     }    
@@ -100,27 +112,57 @@ Upgrade_System_equipmentNames = {
     [25] = "Quiver",
 }
 
+Upgrade_System_forge = {
+    anvilpositions = {
+    Position(1571, 1250, 6),
+    Position(1574, 1250, 6),
+    },
+}
+
+Upgrade_System_itemForge = {
+    base = 2342, -- <== or ==>
+    basetwo = 2344, -- /\ or \/
+    anvil = 35185,
+    anvilOn = 35186,
+    --anvil = 3458,
+    basin = 2113,
+    tile = 410,
+    hammer = 37171,
+}
+
 local UPGRADE_STONES_KEY = "upgrade stones"
 
 UpgradeSystemShopConfigTable = {
     [UPGRADE_STONES_KEY] = {},
     ["extract tools"] = {
-        { clientId = 7281, itemName = "Memory Crystal", buy = 1 },
+        { clientId = 7281, itemName = "Memory Crystal", buy = 10 },
     },
+    ["normal stones mined"] = {}, -- Este nome deve corresponder exatamente
+    ["epic stones mined"] = {},   -- ao usado no categoryKey abaixo
+    ["refined stones mined"] = {}
 }
 
+-- Popula as tabelas de stones
 for name, config in pairs(Upgrade_System_config) do
     if type(config) == "table" and config.enable then
-        if config.itemId and config.price then
+        if config.itemId and config.price and config.gem then
+            -- Adiciona upgrade stones
             table.insert(UpgradeSystemShopConfigTable[UPGRADE_STONES_KEY], {
                 name = name,
                 itemName = name .. " Upgrade Stone",
                 clientId = config.itemId,
                 buy = config.price,
-                sell = config.price / 2,
             })
-        else
-            print("Configuração inválida para: " .. name)
+            
+            -- Adiciona em categorias separadas (Alterado para corresponder aos nomes acima)
+            local categoryKey = string.format("%s stones mined", name:lower())
+            table.insert(UpgradeSystemShopConfigTable[categoryKey], {
+                name = name,
+                itemName = name .. " Upgrade Stone",
+                clientId = config.itemId,
+                buy = config.price,
+                --buy = 1
+            })
         end
     end
 end
