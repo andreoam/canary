@@ -1,5 +1,5 @@
 local config = {
-    actionId = 18563, -- on lever
+    actionId = 18561, -- on lever
     lever = {
         left = 2772,
         right = 2773
@@ -8,6 +8,7 @@ local config = {
         itemId = 5957, -- item required to pull lever
         count = 1
     },
+    
     rouletteOptions = {
         rareItemChance_broadcastThreshold = 500,
         ignoredItems = {1617}, -- if you have tables/counters/other items on the roulette tiles, add them here
@@ -17,6 +18,7 @@ local config = {
         spinSlowdownRamping = 5,
         rouletteStorage = 48550 -- required storage to avoid player abuse (if they logout/die before roulette finishes.. they can spin again for free)
     },
+
     prizePool = {
          -- muito Raros
         {itemId = 34109, count = {1, 1}, chance = 100}, -- bag you desire
@@ -188,7 +190,7 @@ local function rewardPlayer(playerId, leverPosition)
     if chancedItems[#chancedItems - 3] <= config.rouletteOptions.rareItemChance_broadcastThreshold then
         Game.broadcastMessage("The player " .. player:getName() .. " has won " .. item:getName() .. " from the roulette!", MESSAGE_EVENT_ADVANCE)
     else
-        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Você ganhou " .. item:getCount() .. " " .. item:getName() .. "!")
+        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Vocï¿½ ganhou " .. item:getCount() .. " " .. item:getName() .. "!")
     end
 end
 

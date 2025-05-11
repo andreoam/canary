@@ -12,3 +12,6 @@ dofile(DATA_DIRECTORY .. "/lib/tables/load.lua")
 
 -- Functions library
 dofile(DATA_DIRECTORY .. "/lib/functions/load.lua")
+
+-- Roleta
+dofile(DATA_DIRECTORY .. "/scripts/custom_underfox/roleta/roleta_lib.lua")

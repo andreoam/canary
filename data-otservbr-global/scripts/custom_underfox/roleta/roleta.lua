@@ -1,90 +1,38 @@
-local config = {
-    actionId = 18562,  -- ActionID da alavanca
-    requiredItemId = 37317, 
-    positions = {
-
-        Position(31720, 32434, 10),
-        Position(31721, 32434, 10),
-        Position(31722, 32434, 10),
-        Position(31723, 32434, 10),
-        Position(31724, 32434, 10),  -- position this list is hard-coded to be the reward location, which is the item given to the player
-        Position(31725, 32434, 10),
-        Position(31726, 32434, 10),
-        Position(31727, 32434, 10),
-        Position(31728, 32434, 10),
-        Position(31729, 32434, 10),
-    },
-
-    items = {
-
-        -- muito Raros
-
-        {id = 34109, count = 1, chance = 1, raro = true}, -- bag you desire
-        {id = 39546, count = 1, chance = 1, raro = true},-- primal bag
-        {id = 43860, count = 1, chance = 1, raro = true}, -- bag you covet
-        {id = 34326, count = 1, chance = 1, raro = true}, -- wicked witch
-
-        -- raro
-        {id = 37317, count = 1, chance = 2, raro = true}, -- roulette token
-        {id = 22118, count = 100, chance = 2, raro = true},  -- Tibia Coins
-        {id = 22721, count = 5, chance = 2, raro = true},  -- Gold Token
-        {id = 22516, count = 5, chance = 2, raro = true},  -- Silver Token
-        {id = 39693, count = 1, chance = 2, raro = true}, -- 25 years backpack
-
-         -- semi raro
-        {id = 37110, count = 1, chance = 4}, -- exalted core
-        {id = 6529, count = 1, chance = 4}, -- soft boots
-        {id = 28484, count = 10, chance = 4}, -- blueberry cupcake
-        {id = 28485, count = 10, chance = 4}, -- strawberry cupcake
-        {id = 28486, count = 10, chance = 4}, -- lemon cupcake
-
-        -- incomum
-
-        {id = 16175, count = 1, chance = 5}, -- shiny blade
-        {id = 3043, count = 100, chance = 5}, -- Crystal Coin
-        {id = 36724, count = 5, chance = 5}, -- strike enhancement
-        {id = 36723, count = 5, chance = 5}, -- kooldown-aid
-        {id = 36736, count = 5, chance = 5}, -- fire amplification
-        {id = 36737, count = 5, chance = 5}, -- ice amplification
-        {id = 36738, count = 5, chance = 5}, -- earth amplification
-        {id = 36739, count = 5, chance = 5}, -- energy amplification
-        {id = 36740, count = 5, chance = 5}, -- holy amplification
-        {id = 36741, count = 5, chance = 5}, -- death amplification
-        {id = 36742, count = 5, chance = 5}, -- physical amplification
-        {id = 36725, count = 5, chance = 5}, -- stamina extension
-        {id = 36729, count = 5, chance = 6}, -- fire resilience
-        {id = 36730, count = 5, chance = 6}, -- ice resilience 
-        {id = 36731, count = 5, chance = 6}, -- earth resilience
-        {id = 36732, count = 5, chance = 6}, -- energy resilience
-        {id = 36733, count = 5, chance = 6}, -- holy resilience
-        {id = 36734, count = 5, chance = 6}, -- death resilience
-        {id = 36735, count = 5, chance = 6}, -- physical resilience
-        {id = 37317, count = 1, chance = 7},-- roulette token
-
-        -- comum
-        {id = 25718, count = 1, chance = 10}, -- temple teleport scroll -- item
-        {id = 3734, count = 10, chance = 9}, -- blood herb
-        {id = 3079, count = 1, chance = 9}, -- boots of haste
-        {id = 3392, count = 5, chance = 9}, -- royal helmet
-        
-    },
-    rouletteOptions = {
-        winEffects = {CONST_ANI_FIRE, CONST_ME_SOUND_YELLOW, CONST_ME_SOUND_PURPLE, CONST_ME_SOUND_BLUE, CONST_ME_SOUND_WHITE}, -- first effect needs to be distance effect
-    },
+local vocations = {
+    [RouletteConfig.actionIds.druid] = "druid",
+    [RouletteConfig.actionIds.knight] = "knight",
+    [RouletteConfig.actionIds.paladin] = "paladin",
+    [RouletteConfig.actionIds.sorcerer] = "sorcerer"
 }
 
+local function getConfigForVocation(actionId)
+    local vocation = vocations[actionId]
+    if not vocation then return nil end
+
+    local vocationItems = RouletteConfig[vocation .. "Items"] or {}
+    
+    return {
+        actionId = actionId,
+        requiredItemId = RouletteConfig.requiredItemId,
+        positions = RouletteConfig.positions[vocation],
+        items = vocationItems,
+        leverIds = RouletteConfig.leverIds
+    }
+end
+
 local isRouletteRunning = false
+local cleanupEventId = nil
 
 local function addItemToPlayer(player, item)
     player:addItem(item.id, item.count)
-    player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Legal! Ganhou um " .. ItemType(item.id):getName() .. "!")
+    player:sendTextMessage(MESSAGE_LOOK, 'Recebeu ' .. ItemType(item.id):getName() .. '!')
     player:getPosition():sendMagicEffect(CONST_ME_GIFT_WRAPS)
     if item.raro then
         Game.broadcastMessage(player:getName() .. " ganhou um item raro: " .. ItemType(item.id):getName() .. " na roleta!", MESSAGE_EVENT_ADVANCE)
     end
 end
 
-local function getRandomItem()
+local function getRandomItem(config)
     local totalWeight = 0
     for _, item in ipairs(config.items) do
         totalWeight = totalWeight + item.chance
@@ -100,7 +48,7 @@ local function getRandomItem()
     end
 end
 
-local function moveItems()
+local function moveItems(config)
     for i = #config.positions, 2, -1 do
         local tile = Tile(config.positions[i - 1])
         local item = tile and tile:getTopDownItem()
@@ -111,7 +59,7 @@ local function moveItems()
     end
 end
 
-local function clearItems()
+local function clearItems(config)
     for _, pos in ipairs(config.positions) do
         local tile = Tile(Position(pos))
         if tile then
@@ -129,7 +77,7 @@ local function createItemWithEffect(position, item)
     Position(position):sendMagicEffect(CONST_ME_MAGIC_BLUE)
 end
 
-local function getItemConfigById(itemId)
+local function getItemConfigById(itemId, config)
     for _, item in ipairs(config.items) do
         if item.id == itemId then
             return item
@@ -138,27 +86,49 @@ local function getItemConfigById(itemId)
     return nil
 end
 
-local function rouletteAction(player)
+local function rouletteAction(player, item, config)
     isRouletteRunning = true
-    local steps = 50 + math.random(5, 10)  -- Número de passos que a roleta dará antes de parar
-    local interval = 20  -- Intervalo
+    
+    -- Cancela qualquer limpeza pendente
+    if cleanupEventId then
+        stopEvent(cleanupEventId)
+        cleanupEventId = nil
+    end
+    
+    item:transform(config.leverIds.activated)
+    
+    local steps = 50 + math.random(5, 10)
+    local interval = 20
 
-    local currentItem = getRandomItem()
+    local currentItem = getRandomItem(config)
     createItemWithEffect(config.positions[1], currentItem)
 
     for i = 1, steps do
         addEvent(function()
-            moveItems()
+            moveItems(config)
             if i == steps then
                 local winningItem = Tile(Position(config.positions[5])):getTopDownItem()
                 if winningItem then
-                    clearItems()
+                    clearItems(config)
                     for _, pos in ipairs(config.positions) do
                         createItemWithEffect(pos, {id = winningItem:getId(), count = winningItem:getCount()})
                     end
-                    local itemConfig = getItemConfigById(winningItem:getId())
+                    local itemConfig = getItemConfigById(winningItem:getId(), config)
                     addItemToPlayer(player, itemConfig)
+                    
+                    -- Agenda a nova limpeza
+                    cleanupEventId = addEvent(function()
+                        if not isRouletteRunning then  -- Só limpa se a roleta não estiver rodando
+                            clearItems(config)
+                            for _, pos in ipairs(config.positions) do
+                                Position(pos):sendMagicEffect(CONST_ME_POFF)
+                            end
+                        end
+                        cleanupEventId = nil
+                    end, 10000)
+
                 end
+                item:transform(config.leverIds.normal)
                 isRouletteRunning = false
             else
                 local lastPositionTile = Tile(Position(config.positions[#config.positions]))
@@ -169,36 +139,45 @@ local function rouletteAction(player)
                         Position(config.positions[#config.positions]):sendMagicEffect(CONST_ME_POFF)
                     end
                 end
-                currentItem = getRandomItem()
+                currentItem = getRandomItem(config)
                 createItemWithEffect(config.positions[1], currentItem)
             end
         end, i * interval)
 
-        -- Aumentar o intervalo para simular a desaceleração
         interval = interval + 3
     end
 end
 
-local rouletteLever = Action()
+local roulette = Action()
 
-function rouletteLever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+function roulette.onUse(player, item, fromPosition, target, toPosition, isHotkey)
     if isRouletteRunning then
-        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Roleta funcionando. Por favor, espere.")
+        player:sendTextMessage(MESSAGE_LOOK, 'Roleta funcionando. Por favor, espere.')
         return false
     end
 
-    if item.actionid == config.actionId then
-        if player:removeItem(config.requiredItemId, 1) then
-            clearItems()
-            rouletteAction(player)
-            return true
-        else
-            player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Precisa de um item especial para acionar a roleta.")
-            return false
-        end
+    local config = getConfigForVocation(item.actionid)
+    if not config then
+        return false
     end
-    return false
+
+    -- Adicionar items comuns à configuração
+    for _, commonItem in ipairs(RouletteConfig.commonItems) do
+        table.insert(config.items, commonItem)
+    end
+
+    if player:removeItem(config.requiredItemId, 1) then
+        clearItems(config)  -- Passa a config como parâmetro
+        rouletteAction(player, item, config)
+        return true
+    else
+        player:sendTextMessage(MESSAGE_LOOK, 'Precisa de um roulette token acionar a roleta.')
+        return false
+    end
 end
 
-rouletteLever:aid(config.actionId)
-rouletteLever:register()
+-- Registrar a action para todas as vocações
+for actionId, _ in pairs(vocations) do
+    roulette:aid(actionId)
+end
+roulette:register()
