@@ -419,16 +419,16 @@ void PlayerFunctions::init(lua_State* L) {
 }
 
 int PlayerFunctions::luaPlayerDisconnect(lua_State* L) {
-    // player:disconnect()
-    const auto &player = Lua::getUserdataShared<Player>(L, 1, "Player");
-    if (!player) {
-        Lua::reportErrorFunc(Lua::getErrorDesc(LUA_ERROR_PLAYER_NOT_FOUND));
-        return 1;
-    }
+	// player:disconnect()
+	const auto &player = Lua::getUserdataShared<Player>(L, 1, "Player");
+	if (!player) {
+		Lua::reportErrorFunc(Lua::getErrorDesc(LUA_ERROR_PLAYER_NOT_FOUND));
+		return 1;
+	}
 
-    player->disconnect();
-    Lua::pushBoolean(L, true);
-    return 1;
+	player->disconnect();
+	Lua::pushBoolean(L, true);
+	return 1;
 }
 
 int PlayerFunctions::luaPlayerSendInventory(lua_State* L) {
