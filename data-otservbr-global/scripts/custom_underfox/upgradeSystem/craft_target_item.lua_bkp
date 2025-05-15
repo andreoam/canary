@@ -1,0 +1,86 @@
+-- upgradeSystem library
+dofile(DATA_DIRECTORY .. "/scripts/custom_underfox/upgradeSystem/upgrade_system_lib.lua")
+
+local rewards = {
+    { id = 12600, name = "Coal", chance = 150},
+    { id = 5880, name = "iron ore", chance = 120},
+    { id = 3027, name = "Black Pearl", chance = 80},
+    { id = 3026, name = "White Pearl", chance = 80},
+    { id = 3040, name = "gold nugget", chance = 70},
+    { id = 16133, name = "Pulverized Ore", chance = 60},
+    { id = 3039, name = "red gem", chance = 40},
+    { id = 9058, name = "gold ingot", chance = 30},
+    { id = 16119, name = "Blue Crystal Shard", chance = 30},
+    { id = 3041, name = "blue gem", chance = 25},
+    { id = 14112, name = "Bar of Gold", chance = 20},
+    { id = 32770, name = "diamond", chance = 20},
+    { id = 32769, name = "white gem", chance = 15},
+    { id = 60165, name = "basic stone mined", chance = 10},
+    { id = 60166, name = "refined stone mined", chance = 10},
+    { id = 60167, name = "epic stone mined", chance = 10},
+}
+local validTargets = {35185, 35186, 5707, 5708, 5709, 5618, 5619, 5620, 5621, 5622, 5623}
+local picks = {37171, 4845}
+
+local ForgeCreation = Action()
+
+function ForgeCreation.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+    if table.contains(validTargets, target.itemid) then
+        -- Verifica se tem picareta e adiciona skill
+        if table.contains(picks, item.itemid) then
+            player:addSkillTries(SKILL_FIST, 1) -- Por enquanto usando SKILL_FIST até criar SKILL_MINING
+        end
+
+        -- Chance de sucesso baseada no skill level (como na pesca)
+        local miningChance = math.min(math.max(10 + (player:getEffectiveSkillLevel(SKILL_FIST) - 10) * 0.597, 10), 50)
+        if math.random(1, 100) > miningChance then
+            toPosition:sendMagicEffect(CONST_ME_POFF)
+            return true
+        end
+
+        local totalChance = 0
+        for _, reward in ipairs(rewards) do
+            totalChance = totalChance + reward.chance
+        end
+
+        local randomNumber = math.random(1, totalChance)
+        local currentChance = 0
+        local selectedReward = nil
+
+        for _, reward in ipairs(rewards) do
+            currentChance = currentChance + reward.chance
+            if randomNumber <= currentChance then
+                selectedReward = reward
+                break
+            end
+        end
+
+        if not selectedReward then
+            player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You found nothing.')
+            return true
+        end
+
+        if selectedReward.id == 60167 or selectedReward.id == 60166 or selectedReward.id == 60165 then
+            local item = player:addItem(selectedReward.id, 1)
+            if item then
+                item:setName(selectedReward.name)
+                item:setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, "This item is used to upgrade equipment.\nFirst trade it with Haldor") 
+                item:setCustomAttribute("tool", "upgrade tool")
+                item:setCustomAttribute("rank", "stone mined")
+                player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You received a ' .. selectedReward.name .. '.')
+            end
+            return true
+        end
+
+        player:addItem(selectedReward.id, 1)
+        toPosition:sendMagicEffect(CONST_ME_FIREAREA)
+        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You received a ' .. selectedReward.name .. '.')
+        return true
+    end
+end
+
+-- Registrando múltiplos IDs
+for _, pickId in ipairs(picks) do
+    ForgeCreation:id(pickId)
+end
+ForgeCreation:register()
