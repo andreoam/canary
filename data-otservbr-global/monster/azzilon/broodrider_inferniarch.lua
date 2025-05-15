@@ -74,8 +74,6 @@ monster.voices = {
 	interval = 5000,
 	chance = 10,
 	{ text = "Mah...Hun Hur...!", yell = false },
-       
-	
 }
 
 monster.loot = {
@@ -83,7 +81,7 @@ monster.loot = {
 	{ name = "blue crystal splinter", chance = 12000, maxCount = 4 },
 	{ id = 821, chance = 1900 }, -- magma legs
 	{ id = 49909, chance = 5300, maxCount = 1 }, -- demonic core essence
-        { id = 5803, chance = 813 }, -- "arbalest"
+	{ id = 5803, chance = 813 }, -- "arbalest"
 	{ id = 49893, chance = 1600 }, -- demonic matter	
 	{ id = 50058, chance = 5800 }, -- broodrider saddle
 	{ id = 49908, chance = 1800 }, -- mummified demon finger
@@ -94,10 +92,7 @@ monster.attacks = {
 	{name = "melee", interval = 2000, chance = 100, minDamage = -167, maxDamage = -374, condition = { type = CONDITION_FIRE, totalDamage = 400, interval = 9000 } },
 	{name ="combat", interval = 2000, chance = 16, type = COMBAT_DEATHDAMAGE, minDamage = -400, maxDamage = -472, range = 7, shootEffect = CONST_ANI_INFERNALBOLT, effect = CONST_ME_MORTAREA, target = true},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_PHYSICALDAMAGE, minDamage = -402, maxDamage = -426, effect = CONST_ME_BITE, target = true},
-        {name ="combat", interval = 3000, chance = 14, type = COMBAT_DEATHDAMAGE, minDamage = -440, maxDamage = -459, effect = 264, target = true},
-     
-       
-	
+    {name ="combat", interval = 3000, chance = 14, type = COMBAT_DEATHDAMAGE, minDamage = -440, maxDamage = -459, effect = 264, target = true},
 }
 
 monster.defenses = {

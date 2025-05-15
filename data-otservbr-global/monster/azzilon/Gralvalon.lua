@@ -15,7 +15,6 @@ monster.outfit = {
 monster.bosstiary = {
 	bossRaceId = 2606,
 	bossRace = RARITY_BANE,
-
 }
 
 monster.health = 33000
@@ -60,7 +59,7 @@ monster.flags = {
 monster.summon = {
 	maxSummons = 8,
 	summons = {
-		{ name = "hellhunter inferniarch", chance = 100, interval = 2000, count = 8 },
+	{ name = "hellhunter inferniarch", chance = 100, interval = 2000, count = 8 },
 	},
 }
 
@@ -73,7 +72,6 @@ monster.voices = {
 	interval = 5000,
 	chance = 10,
 	{ text = "Ardash... El...!", "Urrrglll!", yell = false },
-	
 }
 
 monster.loot = {
@@ -103,17 +101,16 @@ monster.loot = {
 	{ id = 3360, chance = 9750 }, -- golden armor
 	{ id = 8074, chance = 1900 }, -- spellbook of mind control
 	{ id = 3340, chance = 1400 }, -- heavy mace
-        { id = 49908, chance = 11800 }, -- mummified demon finger
-	
+	{ id = 49908, chance = 11800 }, -- mummified demon finger
 }
 
 monster.attacks = {
 	{name = "melee", interval = 2000, chance = 100, minDamage = 200, maxDamage = -1069, condition = { type = CONDITION_FIRE, totalDamage = 600, interval = 9000 } },
 	{name ="combat", interval = 2000, chance = 25, type = COMBAT_PHYSICALDAMAGE, minDamage = -460, maxDamage = -930, range = 7, shootEffect = CONST_ANI_INFERNALBOLT, target = true},
 	{name ="combat", interval = 2000, chance = 17, type = COMBAT_ENERGYDAMAGE, minDamage = -380, maxDamage = -720, radius = 4, effect = CONST_ME_YELLOWENERGY, target = false},
-        {name ="combat", interval = 2000, chance = 18, type = COMBAT_ENERGYDAMAGE, minDamage = -200, maxDamage = -700, range = 7, shootEffect = CONST_ANI_ENERGY, radius = 3, effect = CONST_ME_ENERGYHIT, target = true},
-        {name = "whitechain", interval = 3000, chance = 10, minDamage = -100, maxDamage = -380, target = true },
-        {name ="combat", interval = 2000, chance = 16, type = COMBAT_DEATHDAMAGE, minDamage = -200, maxDamage = -750, range = 7, shootEffect = CONST_ANI_ONYXARROW, effect = CONST_ME_MORTAREA, target = true},
+	{name ="combat", interval = 2000, chance = 18, type = COMBAT_ENERGYDAMAGE, minDamage = -200, maxDamage = -700, range = 7, shootEffect = CONST_ANI_ENERGY, radius = 3, effect = CONST_ME_ENERGYHIT, target = true},
+	{name = "whitechain", interval = 3000, chance = 10, minDamage = -100, maxDamage = -380, target = true },
+	{name ="combat", interval = 2000, chance = 16, type = COMBAT_DEATHDAMAGE, minDamage = -200, maxDamage = -750, range = 7, shootEffect = CONST_ANI_ONYXARROW, effect = CONST_ME_MORTAREA, target = true},
 	
 }
 

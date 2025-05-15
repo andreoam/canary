@@ -74,7 +74,7 @@ monster.voices = {
 	interval = 5000,
 	chance = 10,
 	{ text = "Kar Ath... Ul", yell = false },
-        { text = "Rezzz Kor ... Urrrgh!", yell = false },
+	{ text = "Rezzz Kor ... Urrrgh!", yell = false },
 	
 }
 
@@ -83,21 +83,17 @@ monster.loot = {
 	{ id = 7452, chance = 5600 }, -- spiked squelcher
 	{ id = 3029, chance = 12000, maxCount = 5 }, -- small sapphire
 	{ id = 49909, chance = 5300, maxCount = 1 }, -- demonic core essence
-        { id = 3040, chance = 813 }, -- "gold nugget"
+	{ id = 3040, chance = 813 }, -- "gold nugget"
 	{ id = 49893, chance = 1600 }, -- demonic matter	
 	{ id = 50059, chance = 5800 }, -- gorger antlers
 	{ id = 49908, chance = 1800 }, -- mummified demon finger
-	
 }
 
 monster.attacks = {
-	{name = "melee", interval = 2000, chance = 100, minDamage = -199, maxDamage = -503, condition = { type = CONDITION_AGONY, totalDamage = 400, interval = 9000 } },
+	{name = "melee", interval = 2000, chance = 100, minDamage = -199, maxDamage = -503, condition = { type = CONDITION_FIRE, totalDamage = 400, interval = 9000 } },
 	{name ="combat", interval = 2000, chance = 18, type = COMBAT_DEATHDAMAGE, minDamage = -438, maxDamage = -485, radius = 5, effect = CONST_ME_MORTAREA, target = true},
 	{name ="extended fire chain", interval = 2000, chance = 20, minDamage = -389, maxDamage = -438},
-        {name ="combat", interval = 2000, chance = 10, type = COMBAT_DEATHDAMAGE, minDamage = -440, maxDamage = -459, effect = 264, target = true},
-     
-       
-	
+    {name ="combat", interval = 2000, chance = 10, type = COMBAT_DEATHDAMAGE, minDamage = -440, maxDamage = -459, effect = 264, target = true},	
 }
 
 monster.defenses = {
