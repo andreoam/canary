@@ -7,6 +7,8 @@ local config = {
 		{ fromPos = Position(32358, 31777, 7), toPos = Position(32364, 31787, 7), townId = TOWNS_LIST.CARLIN },
 		{ fromPos = Position(32642, 31921, 11), toPos = Position(32656, 31929, 11), townId = TOWNS_LIST.KAZORDOON },
 		{ fromPos = Position(32365, 32231, 7), toPos = Position(32374, 32243, 7), townId = TOWNS_LIST.THAIS },
+		{ fromPos = Position(32358, 32239, 7), toPos = Position(32381, 32244, 7), townId = TOWNS_LIST.THAIS },
+		
 		{ fromPos = Position(32953, 32072, 7), toPos = Position(32963, 32081, 7), townId = TOWNS_LIST.VENORE },
 		{ fromPos = Position(33188, 32844, 8), toPos = Position(33201, 32857, 8), townId = TOWNS_LIST.ANKRAHMUN },
 		{ fromPos = Position(33208, 31803, 8), toPos = Position(33225, 31819, 8), townId = TOWNS_LIST.EDRON },

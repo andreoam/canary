@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<npcs>
+	<npc centerx="32359" centery="32235" centerz="6" radius="1">
+		<npc name="Addoner" x="0" y="0" z="6" spawntime="60" />
+	</npc>
+	<npc centerx="32343" centery="32246" centerz="6" radius="1">
+		<npc name="Galuna" x="0" y="0" z="6" spawntime="60" />
+	</npc>
+	<npc centerx="32343" centery="32236" centerz="7" radius="1">
+		<npc name="Elane" x="0" y="0" z="7" spawntime="60" />
+	</npc>
+	<npc centerx="32360" centery="32231" centerz="8" radius="1">
+		<npc name="The Merchant" x="0" y="-1" z="8" spawntime="60" />
+	</npc>
+	<npc centerx="32360" centery="32242" centerz="8" radius="1">
+		<npc name="The Supplier" x="0" y="1" z="8" spawntime="60" />
+	</npc>
+</npcs>

@@ -9007,78 +9007,6 @@
 		<monster name="Renegade Knight" x="-1" y="0" z="8" spawntime="14402" />
 		<monster name="Renegade Knight" x="0" y="0" z="8" spawntime="90" />
 	</monster>
-	<monster centerx="32355" centery="32251" centerz="8" radius="1">
-		<monster name="Rotworm" x="1" y="1" z="8" spawntime="60" />
-	</monster>
-	<monster centerx="32360" centery="32252" centerz="8" radius="1">
-		<monster name="Rotworm" x="0" y="0" z="8" spawntime="60" />
-	</monster>
-	<monster centerx="32370" centery="32252" centerz="8" radius="1">
-		<monster name="Rotworm" x="0" y="0" z="8" spawntime="60" />
-	</monster>
-	<monster centerx="32370" centery="32255" centerz="8" radius="1">
-		<monster name="Rotworm" x="0" y="0" z="8" spawntime="60" />
-	</monster>
-	<monster centerx="32361" centery="32258" centerz="8" radius="1">
-		<monster name="Rotworm" x="0" y="0" z="8" spawntime="60" />
-	</monster>
-	<monster centerx="32339" centery="32259" centerz="8" radius="1">
-		<monster name="Rotworm" x="0" y="0" z="8" spawntime="60" />
-	</monster>
-	<monster centerx="32370" centery="32259" centerz="8" radius="1">
-		<monster name="Rotworm" x="0" y="0" z="8" spawntime="60" />
-	</monster>
-	<monster centerx="32341" centery="32260" centerz="8" radius="1">
-		<monster name="Rotworm" x="0" y="0" z="8" spawntime="60" />
-	</monster>
-	<monster centerx="32345" centery="32260" centerz="8" radius="1">
-		<monster name="Rotworm" x="0" y="0" z="8" spawntime="60" />
-	</monster>
-	<monster centerx="32355" centery="32260" centerz="8" radius="1">
-		<monster name="Rotworm" x="0" y="0" z="8" spawntime="60" />
-	</monster>
-	<monster centerx="32347" centery="32261" centerz="8" radius="1">
-		<monster name="Rotworm" x="0" y="0" z="8" spawntime="60" />
-	</monster>
-	<monster centerx="32344" centery="32262" centerz="8" radius="1">
-		<monster name="Rotworm" x="0" y="0" z="8" spawntime="60" />
-	</monster>
-	<monster centerx="32360" centery="32262" centerz="8" radius="1">
-		<monster name="Rotworm" x="0" y="0" z="8" spawntime="60" />
-		<monster name="Rotworm" x="0" y="1" z="8" spawntime="60" />
-	</monster>
-	<monster centerx="32370" centery="32262" centerz="8" radius="1">
-		<monster name="Rotworm" x="0" y="0" z="8" spawntime="60" />
-	</monster>
-	<monster centerx="32362" centery="32265" centerz="8" radius="1">
-		<monster name="Rotworm" x="0" y="0" z="8" spawntime="60" />
-	</monster>
-	<monster centerx="32349" centery="32266" centerz="8" radius="1">
-		<monster name="Rotworm" x="0" y="0" z="8" spawntime="60" />
-	</monster>
-	<monster centerx="32356" centery="32266" centerz="8" radius="1">
-		<monster name="Rotworm" x="0" y="0" z="8" spawntime="60" />
-	</monster>
-	<monster centerx="32370" centery="32268" centerz="8" radius="1">
-		<monster name="Rotworm" x="0" y="0" z="8" spawntime="60" />
-	</monster>
-	<monster centerx="32339" centery="32269" centerz="8" radius="4">
-		<monster name="Rotworm" x="-1" y="-3" z="8" spawntime="60" />
-		<monster name="Rotworm" x="-1" y="0" z="8" spawntime="60" />
-		<monster name="Rotworm" x="1" y="3" z="8" spawntime="60" />
-	</monster>
-	<monster centerx="32347" centery="32269" centerz="8" radius="1">
-		<monster name="Rotworm" x="0" y="0" z="8" spawntime="60" />
-	</monster>
-	<monster centerx="32368" centery="32269" centerz="8" radius="1">
-		<monster name="Rotworm" x="0" y="0" z="8" spawntime="60" />
-	</monster>
-	<monster centerx="32373" centery="32272" centerz="8" radius="1">
-		<monster name="Rotworm" x="0" y="0" z="8" spawntime="60" />
-	</monster>
-	<monster centerx="32344" centery="32273" centerz="8" radius="1">
-		<monster name="Rotworm" x="0" y="0" z="8" spawntime="60" />
-	</monster>
 	<monster centerx="17419" centery="17195" centerz="9" radius="3">
 		<monster name="Cult Enforcer" x="0" y="2" z="9" spawntime="60" />
 		<monster name="Cult Believer" x="1" y="2" z="9" spawntime="60" />
@@ -9660,25 +9588,5 @@
 		<monster name="Hydra" x="-17" y="5" z="9" spawntime="60" />
 		<monster name="Hydra" x="-3" y="5" z="9" spawntime="60" />
 		<monster name="Hydra" x="-9" y="7" z="9" spawntime="60" />
-	</monster>
-	<monster centerx="32367" centery="32257" centerz="9" radius="1">
-		<monster name="Orc" x="0" y="0" z="9" spawntime="60" />
-	</monster>
-	<monster centerx="32373" centery="32259" centerz="9" radius="1">
-		<monster name="Orc Warrior" x="0" y="0" z="9" spawntime="60" />
-		<monster name="Orc" x="0" y="1" z="9" spawntime="60" />
-	</monster>
-	<monster centerx="32362" centery="32264" centerz="9" radius="1">
-		<monster name="Orc Warrior" x="0" y="0" z="9" spawntime="60" />
-		<monster name="Orc" x="1" y="1" z="9" spawntime="60" />
-	</monster>
-	<monster centerx="32373" centery="32271" centerz="9" radius="1">
-		<monster name="Orc" x="0" y="0" z="9" spawntime="60" />
-	</monster>
-	<monster centerx="32371" centery="32274" centerz="9" radius="1">
-		<monster name="Orc" x="0" y="0" z="9" spawntime="60" />
-	</monster>
-	<monster centerx="32373" centery="32275" centerz="9" radius="1">
-		<monster name="Orc Warrior" x="0" y="0" z="9" spawntime="60" />
 	</monster>
 </monsters>
