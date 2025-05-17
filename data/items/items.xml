@@ -83349,13 +83349,13 @@ Granted by TibiaGoals.com"/>
 	<item id="60118" name="Chest of Elder's">
 		<attribute key="primarytype" value="containers"/>
 		<attribute key="containersize" value="40"/>
-		<attribute key="rotateto" value="49711"/>
+		<attribute key="rotateto" value="60119"/>
 		<attribute key="wrapableto" value="49716"/>
 	</item>
 	<item id="60119" name="Chest of Elite's">
 		<attribute key="primarytype" value="containers"/>
 		<attribute key="containersize" value="40"/>
-		<attribute key="rotateto" value="49709"/>
+		<attribute key="rotateto" value="60118"/>
 		<attribute key="wrapableto" value="49715"/>
 	</item>
 	<item id="60120" name="Chest of Elite's">
