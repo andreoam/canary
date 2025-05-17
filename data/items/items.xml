@@ -83361,31 +83361,37 @@ Granted by TibiaGoals.com"/>
 	<item id="60120" name="Chest of Elite's">
 		<attribute key="primarytype" value="containers"/>
 		<attribute key="containersize" value="40"/>
-		<attribute key="rotateto" value="49710"/>
+		<attribute key="rotateto" value="60121"/>
+		<attribute key="wrapableto" value="49715"/>
+	</item>
+	<item id="60121" name="Chest of Elite's">
+		<attribute key="primarytype" value="containers"/>
+		<attribute key="containersize" value="40"/>
+		<attribute key="rotateto" value="60120"/>
 		<attribute key="wrapableto" value="49715"/>
 	</item>
 	<item id="60122" name="Chest of Master's">
 		<attribute key="primarytype" value="containers"/>
 		<attribute key="containersize" value="40"/>
-		<attribute key="rotateto" value="49707"/>
+		<attribute key="rotateto" value="60123"/>
 		<attribute key="wrapableto" value="49714"/>
 	</item>
 	<item id="60123" name="Chest of Master's">
 		<attribute key="primarytype" value="containers"/>
 		<attribute key="containersize" value="40"/>
-		<attribute key="rotateto" value="49708"/>
+		<attribute key="rotateto" value="60122"/>
 		<attribute key="wrapableto" value="49714"/>
 	</item>
 	<item id="60124" name="Chest of Royal's">
 		<attribute key="primarytype" value="containers"/>
 		<attribute key="containersize" value="40"/>
-		<attribute key="rotateto" value="49705"/>
+		<attribute key="rotateto" value="60125"/>
 		<attribute key="wrapableto" value="49713"/>
 	</item>
 	<item id="60125" name="Chest of Royal's">
 		<attribute key="primarytype" value="containers"/>
 		<attribute key="containersize" value="40"/>
-		<attribute key="rotateto" value="49706"/>
+		<attribute key="rotateto" value="60124"/>
 		<attribute key="wrapableto" value="49713"/>
 	</item>
 	<item id="60126" article="a" name="sanguine backpack">
@@ -83429,7 +83435,7 @@ Granted by TibiaGoals.com"/>
 		<attribute key="primarytype" value="furniture"/>
 		<attribute key="description" value="You can train your skills by using training weapons with this expert exercise dummy"/>
 		<attribute key="wrapableto" value="23398"/>
-		<attribute key="rotateto" value="49420"/>
+		<attribute key="rotateto" value="60131"/>
 		<attribute key="type" value="dummy">
 			<attribute key="rate" value="110"/>
 		</attribute>
@@ -83438,7 +83444,7 @@ Granted by TibiaGoals.com"/>
 		<attribute key="primarytype" value="furniture"/>
 		<attribute key="description" value="You can train your skills by using training weapons with this expert exercise dummy"/>
 		<attribute key="wrapableto" value="23398"/>
-		<attribute key="rotateto" value="49419"/>
+		<attribute key="rotateto" value="60130"/>
 		<attribute key="type" value="dummy">
 			<attribute key="rate" value="110"/>
 		</attribute>
@@ -83447,7 +83453,7 @@ Granted by TibiaGoals.com"/>
 		<attribute key="primarytype" value="furniture"/>
 		<attribute key="description" value="You can train your skills by using training weapons with this expert exercise dummy"/>
 		<attribute key="wrapableto" value="23398"/>
-		<attribute key="rotateto" value="49422"/>
+		<attribute key="rotateto" value="60133"/>
 		<attribute key="type" value="dummy">
 			<attribute key="rate" value="110"/>
 		</attribute>
@@ -83456,7 +83462,7 @@ Granted by TibiaGoals.com"/>
 		<attribute key="primarytype" value="furniture"/>
 		<attribute key="description" value="You can train your skills by using training weapons with this expert exercise dummy"/>
 		<attribute key="wrapableto" value="23398"/>
-		<attribute key="rotateto" value="49421"/>
+		<attribute key="rotateto" value="60132"/>
 		<attribute key="type" value="dummy">
 			<attribute key="rate" value="110"/>
 		</attribute>
