@@ -109,8 +109,8 @@ function Player:sendRuneCraftWindow(config)
     window:addButton("Exit")
 
     -- Set default buttons
-    window:setDefaultEnterButton(0)
-    window:setDefaultEscapeButton(2)
+
+    window:setDefaultEscapeButton(0)
 
     -- Add choices for the crafting options
     for i = 1, #config.runes do
