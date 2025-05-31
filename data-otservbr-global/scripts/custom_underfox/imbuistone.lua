@@ -1,4 +1,4 @@
--- Função para retirar dinheiro do banco
+-- Funï¿½ï¿½o para retirar dinheiro do banco
 	function getBankMoney(cid, amount)
 		local player = Player(cid)
 		if player:getBankBalance() >= amount then
@@ -8,7 +8,7 @@
 		return false
 	end
 	
-	-- Configuração dos itens por categoria
+	-- Configuraï¿½ï¿½o dos itens por categoria
 	local config = {
 		mainTitleMsg = "Imbuing Stone System", 
 		mainMsg = "Welcome to the crafting system. Please choose a category.", 
@@ -70,7 +70,7 @@
 		needItems = "You need money in your backpack to make the purchase",
 	}
 	
-	-- Função para adicionar lista de itens ao jogador com quantidades específicas
+	-- Funï¿½ï¿½o para adicionar lista de itens ao jogador com quantidades especï¿½ficas
 	local function addItemsToPlayer(player, itemList, amount)
 		local inbox = player:getStoreInbox()
 		if inbox then
@@ -82,30 +82,30 @@
 		end
 	end
 	
-	-- Função para confirmar a compra
+	-- Funï¿½ï¿½o para confirmar a compra
 	function Player:sendConfirmationWindow(item, category)
 		local confirmationWindow = ModalWindow {
 			title = "Confirm Purchase",
-			message = "Você está comprando o item " .. item.item .. " para o imbue de " .. category .. " pelo valor de " .. (item.reqGold / 1000000) .. "KK!\n\nEstá Correto?",
+			message = "Vocï¿½ estï¿½ comprando o item " .. item.item .. " para o imbue de " .. category .. " pelo valor de " .. (item.reqGold / 1000000) .. "KK!\n\nEstï¿½ Correto?",
 		}
 	
-		-- Botão Yes com callback separado
+		-- Botï¿½o Yes com callback separado
 		confirmationWindow:addButton("Yes", function(player)
 			local itemAmount = 100
 			local requiredGold = item.reqGold * (itemAmount / 100)
 		
 			if not getBankMoney(player:getId(), requiredGold) then
-				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Você não tem dinheiro suficiente no banco.")
+				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Vocï¿½ nï¿½o tem dinheiro suficiente no banco.")
 				return true
 			end
 		
 			addItemsToPlayer(player, item.itemList, itemAmount)
 			player:getPosition():sendMagicEffect(CONST_ME_FIREATTACK)
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Você comprou " .. item.item .. " com sucesso.")
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Vocï¿½ comprou " .. item.item .. " com sucesso.")
 			return true
 		end)
 	
-		-- Botão No com callback separado
+		-- Botï¿½o No com callback separado
 		confirmationWindow:addButton("No", function(player)
 			player:sendItemSelectionWindow(category)
 			return true
@@ -117,13 +117,13 @@
 	end
 	
 	
-	-- Segunda janela: Escolha do item após a categoria
+	-- Segunda janela: Escolha do item apï¿½s a categoria
 	function Player:sendItemSelectionWindow(category)
 		local function buttonCallback(player, button, choice)
 			if choice.id then
 				local item = config.categories[category][choice.id]
 	
-				-- Abre a janela de confirmaçao
+				-- Abre a janela de confirmaï¿½ao
 				player:sendConfirmationWindow(item, category)
 			end
 		end
@@ -135,10 +135,10 @@
 		}
 	
 		window:addButton("Buy", buttonCallback)
-		window:addButton("Back", function(player) player:sendCategorySelectionWindow() end) -- Botão de voltar
+		window:addButton("Back", function(player) player:sendCategorySelectionWindow() end) -- Botï¿½o de voltar
 		window:addButton("Exit")
-		window:setDefaultEnterButton(0)
-		window:setDefaultEscapeButton(1)
+		window:setDefaultEnterButton(1)
+		window:setDefaultEscapeButton(0)
 	
 		for i = 1, #config.categories[category] do
 			window:addChoice(config.categories[category][i].item)
@@ -150,7 +150,7 @@
 	-- Primeira janela: Escolha da categoria
 	function Player:sendCategorySelectionWindow()
 		local function categoryCallback(player, button, choice)
-			-- Mapeando a escolha de índice para a categoria correta
+			-- Mapeando a escolha de ï¿½ndice para a categoria correta
 			local categories = {"Support", "Skill", "Attack", "Defense"}
 			local selectedCategory = categories[choice.id]
 			player:sendItemSelectionWindow(selectedCategory)
@@ -162,13 +162,13 @@
 			message = config.mainMsg .. "\n\n",
 		}
 	
-		-- Adiciona o botão para confirmar
+		-- Adiciona o botï¿½o para confirmar
 		window:addButton("Select", categoryCallback)
 		window:addButton("Exit")
-		window:setDefaultEnterButton(0)
-		window:setDefaultEscapeButton(1)
+		window:setDefaultEnterButton(1)
+		window:setDefaultEscapeButton(0)
 	
-		-- Adiciona as opçãoes de categoria
+		-- Adiciona as opï¿½ï¿½oes de categoria
 		window:addChoice("Support")
 		window:addChoice("Skill")
 		window:addChoice("Attack")
@@ -177,7 +177,7 @@
 		window:sendToPlayer(self)
 	end
 	
-	-- ação para o item que abre o sistema de crafting
+	-- aï¿½ï¿½o para o item que abre o sistema de crafting
 	local imbuistone = Action()
 	function imbuistone.onUse(player, item, fromPosition, itemEx, toPosition, isHotkey)
 		if item:getId() == 28187 then
@@ -187,6 +187,6 @@
 		return false
 	end
 	
-	imbuistone:id(28187) -- Define ID do item que irá abrir o crafting
+	imbuistone:id(28187) -- Define ID do item que irï¿½ abrir o crafting
 	imbuistone:register()
 	
