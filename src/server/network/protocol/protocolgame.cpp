@@ -4135,7 +4135,11 @@ void ProtocolGame::sendCyclopediaCharacterInspection() {
 					continue;
 				}
 
-				msg.add<uint16_t>(imbuementInfo.imbuement->getIconID());
+				if (imbuementInfo.imbuement->getBaseID() == 4) {
+                    msg.add<uint16_t>(imbuementInfo.imbuement->getIconID() - 1);
+                } else {
+                    msg.add<uint16_t>(imbuementInfo.imbuement->getIconID());
+                }
 				itemImbuements++;
 			}
 
@@ -8054,7 +8058,12 @@ void ProtocolGame::addImbuementInfo(NetworkMessage &msg, uint16_t imbuementId) c
 	msg.addString(imbuement->getDescription());
 	msg.addString(categoryImbuement->name + imbuement->getSubGroup());
 
-	msg.add<uint16_t>(imbuement->getIconID());
+	 if (imbuement->getBaseID() == 4) {
+        msg.add<uint16_t>(imbuement->getIconID() - 1);
+    }
+    else {
+        msg.add<uint16_t>(imbuement->getIconID());
+    }
 	msg.add<uint32_t>(baseImbuement->duration);
 
 	msg.addByte(imbuement->isPremium() ? 0x01 : 0x00);
@@ -8602,7 +8611,11 @@ void ProtocolGame::sendInventoryImbuements(const std::map<Slots_t, std::shared_p
 			const BaseImbuement* baseImbuement = g_imbuements().getBaseByID(imbuement->getBaseID());
 			msg.addByte(0x01);
 			msg.addString(baseImbuement->name + " " + imbuement->getName());
-			msg.add<uint16_t>(imbuement->getIconID());
+			if (imbuement->getBaseID() == 4) {
+                msg.add<uint16_t>(imbuement->getIconID() - 1);
+            } else {
+                msg.add<uint16_t>(imbuement->getIconID());
+            }
 			msg.add<uint32_t>(imbuementInfo.duration);
 
 			std::shared_ptr<Tile> playerTile = player->getTile();
