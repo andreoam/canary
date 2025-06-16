@@ -111,8 +111,8 @@
 			return true
 		end)
 	
-		confirmationWindow:setDefaultEnterButton(1)
-		confirmationWindow:setDefaultEscapeButton(2)
+		confirmationWindow:setDefaultEnterButton(0)
+		confirmationWindow:setDefaultEscapeButton(1)
 		confirmationWindow:sendToPlayer(self)
 	end
 	
@@ -137,8 +137,8 @@
 		window:addButton("Buy", buttonCallback)
 		window:addButton("Back", function(player) player:sendCategorySelectionWindow() end) -- Botão de voltar
 		window:addButton("Exit")
-		window:setDefaultEnterButton(1)
-		window:setDefaultEscapeButton(2)
+		window:setDefaultEnterButton(0)
+		window:setDefaultEscapeButton(1)
 	
 		for i = 1, #config.categories[category] do
 			window:addChoice(config.categories[category][i].item)
@@ -165,8 +165,8 @@
 		-- Adiciona o botão para confirmar
 		window:addButton("Select", categoryCallback)
 		window:addButton("Exit")
-		window:setDefaultEnterButton(1)
-		window:setDefaultEscapeButton(0)
+		window:setDefaultEnterButton(0)
+		window:setDefaultEscapeButton(1)
 	
 		-- Adiciona as opções de categoria
 		window:addChoice("Support")
