@@ -400,4 +400,4 @@ database_backup
 
 # CLION
 cmake-build-*
-data-otservbr-global/world/underfox-otservbr.otbm
+compile_commands.json
