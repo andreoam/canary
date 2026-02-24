@@ -7227,6 +7227,7 @@
 		<attribute key="weight" value="750"/>
 		<attribute key="imbuementslot" value="1">
 			<attribute key="paralysis deflection" value="3"/>
+			<attribute key="increase speed" value="10"/>
 		</attribute>
 		<attribute key="script" value="moveevent">
 			<attribute key="slot" value="feet"/>

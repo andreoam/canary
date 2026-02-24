@@ -1671,7 +1671,7 @@ bool ConditionDamage::setParam(ConditionParam_t param, int32_t value) {
 			break;
 
 		default:
-			return false;
+			return ret;
 	}
 
 	return ret;
