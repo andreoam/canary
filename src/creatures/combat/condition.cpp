@@ -22,6 +22,7 @@
 #include "creatures/players/player.hpp"
 #include "server/network/protocol/protocolgame.hpp"
 #include "utils/object_pool.hpp"
+#include "creatures/players/imbuements/imbuements.hpp"
 
 /**
  *  Condition
