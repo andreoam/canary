@@ -2362,6 +2362,8 @@ bool ConditionSpeed::setParam(ConditionParam_t param, int32_t value) {
 bool ConditionSpeed::unserializeProp(ConditionAttr_t attr, PropStream &propStream) {
 	if (attr == CONDITIONATTR_SPEEDDELTA) {
 		return propStream.read<int32_t>(speedDelta);
+	} else if (attr == CONDITIONATTR_OWNER) {
+		return propStream.read<uint32_t>(owner);
 	} else if (attr == CONDITIONATTR_FORMULA_MINA) {
 		return propStream.read<float>(mina);
 	} else if (attr == CONDITIONATTR_FORMULA_MINB) {
@@ -2391,6 +2393,11 @@ void ConditionSpeed::serialize(PropWriteStream &propWriteStream) {
 
 	propWriteStream.write<uint8_t>(CONDITIONATTR_FORMULA_MAXB);
 	propWriteStream.write<float>(maxb);
+
+	if (owner != 0) {
+		propWriteStream.write<uint8_t>(CONDITIONATTR_OWNER);
+		propWriteStream.write<uint32_t>(owner);
+	}
 }
 
 ConditionSpeed::ConditionSpeed(ConditionId_t initId, ConditionType_t initType, int32_t initTicks, bool initBuff, uint32_t initSubId, int32_t initChangeSpeed) :
