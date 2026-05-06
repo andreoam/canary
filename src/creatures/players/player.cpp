@@ -6929,7 +6929,7 @@ uint32_t Player::getAttackSpeed() const {
 
 double Player::getLostPercent() const {
 	int32_t blessingCount = 0;
-	const uint8_t maxBlessing = (operatingSystem == CLIENTOS_NEW_WINDOWS || operatingSystem == CLIENTOS_NEW_MAC) ? 8 : 6;
+	const uint8_t maxBlessing = 8;
 	for (int i = 2; i <= maxBlessing; i++) {
 		if (hasBlessing(i)) {
 			blessingCount++;
@@ -7540,6 +7540,11 @@ bool Player::toggleMount(bool mount) {
 	}
 
 	if (mount) {
+		if (!g_game().outfitSupportsMount(defaultOutfit.lookType)) {
+			sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
+			return false;
+		}
+
 		if (isMounted()) {
 			return false;
 		}
